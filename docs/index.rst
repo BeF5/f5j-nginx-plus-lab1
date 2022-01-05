@@ -310,17 +310,22 @@ ProcessのPIDがPIDファイルに記載されている内容と一致してい�
    nginx       9148  0.0  0.1   9764  3528 ?        S    10:12   0:00 nginx: worker process
    nginx       9149  0.0  0.1   9764  3528 ?        S    10:12   0:00 nginx: worker process
 
+
 2. Directive / Block (5min)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 3. Configの階層構造 (5min)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
 3. 基本的な動作の確認
 ---------------------
 
+
 0. 事前ファイルの取得 (5min)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 ラボで必要なファイルをGitHubから取得
 
@@ -329,6 +334,7 @@ ProcessのPIDがPIDファイルに記載されている内容と一致してい�
    sudo su - 
    cd ~/
    git clone https://github.com/hiropo20/back-to-basic_plus/
+
 
 1. 設定のテスト、設定の反映 (10min)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
