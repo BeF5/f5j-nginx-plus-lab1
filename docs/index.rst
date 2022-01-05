@@ -58,17 +58,19 @@ Windows Jump HostからCLIの操作を行う場合、以下タブからRDP Clien
 
    .. image:: ./media/udf_jumpbox_loginuser.png
       :width: 200
+      :align: left
 
    .. image:: ./media/udf_jumpbox_loginuser2.png
       :width: 200
+      :align: left
 
 Windows Jump Hostへログインいただくと、SSH Clientのショートカットがありますので、そちらをダブルクリックし `ubuntu01` へ接続ください
 
    .. image:: ./media/putty_icon.jpg
-      :width: 400
+      :width: 50
 
    .. image:: ./media/putty_menu.jpg
-      :width: 400
+      :width: 200
 
 
 
