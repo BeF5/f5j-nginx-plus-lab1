@@ -50,7 +50,7 @@ Webinar(プレゼンテーション・デモ)
    .. image:: ./media/udf_jumpbox.png
       :width: 400
 
-   .. image:: ./media/udf_jumpbox2.png
+   .. image:: ./media/udf_jumpbox_loginuser.png
       :width: 400
 
 
