@@ -16,6 +16,7 @@ NGINX Plusの基本的な動作や仕様について紹介しております。
 | 基本的な解説資料は以下を参照してください。  
 | (このラボはこのセミナーでご紹介した内容を一部抜粋しております)
 
+
 セミナー資料
 ----
 
@@ -25,12 +26,14 @@ NGINX Plusの基本的な動作や仕様について紹介しております。
 [これから始めるNGINX技術解説～基本編 Part2](https://www.slideshare.net/Nginx/nginx-back-to-basic-2-part-2-japanese-webinar)
  (3.6～3.9に該当) 
 
+
 Webinar(プレゼンテーション・デモ)
 ----
 
 [これから始めるNGINX技術解説～基本編](https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-jp/)
 
 [これから始めるNGINX技術解説～基本編 Part2](https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-2-jp/)
+
 
 ラボ環境 (UDF(Unified Demonstration Framework)) コンポーネントへの接続
 ====
@@ -40,19 +43,24 @@ Webinar(プレゼンテーション・デモ)
 | Google ChromeがSupportブラウザとなります。その他ブラウザでは正しく動作しない場合があることご了承ください。   
 | 参照：[UDF Supported Browsers and Clients](https://help.udf.f5.com/en/articles/3470266-supported-browsers-and-clients)
 
-| 無料トライアルの申し込みリンクは以下となります。
-| 対象のソフトウェアのリンクをクリックしてください。
+
+Windows Jump HostへのRDP接続
+----
+
+Windows Jump HostからCLIの操作を行う場合、以下タブからRDP Clientファイルをダウンロードいただき接続ください
+
+   .. image:: ./media/udf_jumpbox.png
+      :width: 200
 
 .. NOTE::
    | RDPのUser名、パスワードはDETAILSをクリックし、GeneralのタブのCredentialsの項目を参照ください   
    | `user` でログインしてください
 
-   .. image:: ./media/udf_jumpbox.png
-      :width: 400
-
    .. image:: ./media/udf_jumpbox_loginuser.png
-      :width: 400
+      :width: 200
 
+   .. image:: ./media/udf_jumpbox_loginuser2.png
+      :width: 200
 
 Windows Jump Hostへログインいただくと、SSH Clientのショートカットがありますので、そちらをダブルクリックし `ubuntu01` へ接続ください
 
