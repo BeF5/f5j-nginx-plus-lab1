@@ -30,9 +30,9 @@ NGINX Plusの基本的な動作や仕様について紹介しております。
 Webinar(プレゼンテーション・デモ)
 ----
 
-[これから始めるNGINX技術解説～基本編](https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-jp/)
+`これから始めるNGINX技術解説～基本編 <https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-jp/>`_
 
-[これから始めるNGINX技術解説～基本編 Part2](https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-2-jp/)
+`これから始めるNGINX技術解説～基本編 Part2 <https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-2-jp/>`_
 
 
 ラボ環境 (UDF(Unified Demonstration Framework)) コンポーネントへの接続
@@ -41,7 +41,7 @@ Webinar(プレゼンテーション・デモ)
 | 弊社が提供するLAB環境を使って動作を確認いただきます。   
 | ラボ環境を起動する等、一部ブラウザを使って操作します。   
 | Google ChromeがSupportブラウザとなります。その他ブラウザでは正しく動作しない場合があることご了承ください。   
-| 参照：[UDF Supported Browsers and Clients](https://help.udf.f5.com/en/articles/3470266-supported-browsers-and-clients)
+| 参照：`UDF Supported Browsers and Clients <https://help.udf.f5.com/en/articles/3470266-supported-browsers-and-clients>`_
 
 
 Windows Jump HostへのRDP接続
