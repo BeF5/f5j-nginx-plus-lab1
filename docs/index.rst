@@ -94,8 +94,7 @@ Ubuntu <https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-ngi
    Protect Dosのインストール手順も示しています。
    ただし、本ラボでセキュリティ機能の確認はありません
 
-NGINX Licenseファイルのコピー
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. NGINX Licenseファイルのコピー
 
 | ライセンスファイルをコピーしてください
   ファイルがラボ環境に配置されていない場合、トライアルを申請し証明書と鍵を取得してください
@@ -116,8 +115,8 @@ NGINX Licenseファイルのコピー
    sudo cp ~/nginx-repo.crt /etc/ssl/nginx/
    sudo cp ~/nginx-repo.key /etc/ssl/nginx/
 
-コマンドの実行
-~~~~~~~~~~~~~~
+#. コマンドの実行
+
 
 NGINX、App Protect WAF と App Protect DoS
 のリポジトリに利用する鍵を取得します
@@ -164,8 +163,8 @@ aptコマンドの設定情報を取得します
 
    sudo apt-get update
 
-NGINX パッケージのインストール
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. NGINX パッケージのインストール
+
 
 ::
 
@@ -217,8 +216,7 @@ NGINX App Protect DoS のVersion
 2. NGINXの基礎
 --------------
 
-1. ステータスの確認 (5min)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. ステータスの確認 (5min)
 
 NGINX Plusのアーキテクチャ
 
@@ -311,20 +309,18 @@ ProcessのPIDがPIDファイルに記載されている内容と一致してい�
    nginx       9149  0.0  0.1   9764  3528 ?        S    10:12   0:00 nginx: worker process
 
 
-2. Directive / Block (5min)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Directive / Block (5min)
 
 
-3. Configの階層構造 (5min)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Configの階層構造 (5min)
 
 
 3. 基本的な動作の確認
 ---------------------
 
 
-0. 事前ファイルの取得 (5min)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#.  事前ファイルの取得 (5min)
 
 
 ラボで必要なファイルをGitHubから取得
@@ -336,8 +332,8 @@ ProcessのPIDがPIDファイルに記載されている内容と一致してい�
    git clone https://github.com/hiropo20/back-to-basic_plus/
 
 
-1. 設定のテスト、設定の反映 (10min)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#.  設定のテスト、設定の反映 (10min)
+
 
 ディレクトリを移動し、必要なファイルをコピーします
 
@@ -523,8 +519,8 @@ curlコマンドを実行します。
 
    <title>Welcome to nginx!</title>
 
-2. 設定の継承 (10min)
-~~~~~~~~~~~~~~~~~~~~~
+#.  設定の継承 (10min)
+
 
 ラボで使用するファイルをコピーします
 
@@ -597,8 +593,8 @@ Port 8080 に対し、curlコマンドを実行します。
 
        <h2>path: html/main.html</h2>
 
-3. server directive (10min)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#.  server directive (10min)
+
 
 NGINXが通信を待ち受ける動作について以下を確認してください。
 
@@ -689,8 +685,8 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
 今度は正しく結果が表示されました
 このようにdefaultパラメータの動作を確認できました
 
-4. listen directive (10min)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#.  listen directive (10min)
+
 
 | listen
   directiveを利用することにより、NGINXが待ち受けるIPアドレスやポート番号など指定することができます。
@@ -798,8 +794,8 @@ socketを削除し、NGINXが起動することを確認します
    rm default.conf
    service nginx restart
 
-5. server_name directive (10min)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#.  server_name directive (10min)
+
 
 server_name
 directiveを利用することにより、待ち受けるFQDNを指定することが可能です。
@@ -884,8 +880,8 @@ server_nameの処理順序は以下です
    # curl localhost -H 'Host:host2.example.co.jp'
    ~^.*\.example\..*
 
-6. location directive (10min)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#.  location directive (10min)
+
 
 ラボで使用するファイルをコピーします
 
@@ -949,8 +945,8 @@ locationの処理順序は以下となります。
    # curl http://localhost/app2/index.html
    LOCATION: ~* \.(php|html), URI: /app2/index.html, PORT: 80
 
-7. Proxy (5min)
-~~~~~~~~~~~~~~~
+#.  Proxy (5min)
+
 
 ラボで使用するファイルをコピーします
 
@@ -1004,7 +1000,7 @@ locationの処理順序は以下となります。
    }
 
 8. Load Balancing (5min)
-~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 ラボで使用するファイルをコピーします
 
@@ -1094,8 +1090,8 @@ locationの処理順序は以下となります。
 
 Dashboardの結果が適切なweightで分散されていることを確認してください。
 
-9. トラフィックの暗号化 (5min)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#.  トラフィックの暗号化 (5min)
+
 
 ラボで使用するファイルをコピーします
 
