@@ -83,6 +83,7 @@ Linux Hostへの接続 (Jump Host を利用しない場合)
 **SSH鍵を登録頂いていない場合、SSHはグレーアウトします** `UDF LAB SSH鍵登録マニュアル <https://github.com/hiropo20/partner_nap_workshop_secure/blob/main/UDF_SSH_Key.pdf>`_
  (ラボ実施時閲覧可に変更します)
 
+
 NGINX Plus の動作
 =================
 
@@ -90,8 +91,7 @@ NGINX Plus の動作
 -----------------------------------
 
 | 本ページに記載する手順に従ってNGINX Plus をインストールします
-| 参考：\ `Installing NGINX Plus on
-Ubuntu <https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-plus/#installing-nginx-plus-on-ubuntu>`__
+| 参考：\ `Installing NGINX Plus on Ubuntu <https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-plus/#installing-nginx-plus-on-ubuntu>`__
 
 .. NOTE::
    手順確認の目的で、NGINX Plusの他、NGINX App Protect WAF、NGINX App
@@ -228,6 +228,13 @@ NGINX App Protect DoS のVersion
 
 NGINX Plusのアーキテクチャ
 
+   - .. image:: ./media/nginx_architecture.jpg
+       :width: 200
+
+   - .. image:: ./media/nginx_architecture2.jpg
+       :width: 200
+
+
 NGINX の停止・起動
 
 ::
@@ -317,13 +324,24 @@ ProcessのPIDがPIDファイルに記載されている内容と一致してい�
    nginx       9149  0.0  0.1   9764  3528 ?        S    10:12   0:00 nginx: worker process
 
 
-1. Directive / Block (5min)
+2. Directive / Block (5min)
 ~~~~~~~~
 
+   - .. image:: ./media/nginx_directive.jpg
+       :width: 200
 
-2. Configの階層構造 (5min)
+
+3. Configの階層構造 (5min)
 ~~~~~~~~
 
+   - .. image:: ./media/nginx_directive2.jpg
+       :width: 200
+
+   - .. image:: ./media/nginx_directive3.jpg
+       :width: 200
+
+   - .. image:: ./media/nginx_directive4.jpg
+       :width: 200
 
 3. 基本的な動作の確認
 ---------------------
@@ -371,9 +389,16 @@ ProcessのPIDがPIDファイルに記載されている内容と一致してい�
        }
    }
 
-| 基本的なコマンドと、Signalについて以下を確認してください。 NGINX
-  Config
-  Fileを反映する前にテストすることが可能です。コマンドを実行し、テスト結果を確認してください。
+基本的なコマンドと、Signalについて以下を確認してください。 
+
+   - .. image:: ./media/nginx_command.jpg
+       :width: 200
+
+   - .. image:: ./media/nginx_command2.jpg
+       :width: 200
+
+
+| NGINX Config Fileを反映する前にテストすることが可能です。コマンドを実行し、テスト結果を確認してください。
 | ``-t`` と ``-T`` の2つのオプションを実行し、違いを確認します。
 
 まず、オプションの内容を確認してください。
@@ -602,10 +627,16 @@ Port 8080 に対し、curlコマンドを実行します。
 
        <h2>path: html/main.html</h2>
 
-#.  server directive (10min)
+4.  server directive (10min)
 ~~~~~~~~
 
 NGINXが通信を待ち受ける動作について以下を確認してください。
+
+   - .. image:: ./media/nginx_server.jpg
+       :width: 200
+
+   - .. image:: ./media/nginx_server2.jpg
+       :width: 200
 
 ラボで使用するファイルをコピーします
 
@@ -694,12 +725,18 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
 今度は正しく結果が表示されました
 このようにdefaultパラメータの動作を確認できました
 
-#.  listen directive (10min)
+5.  listen directive (10min)
 ~~~~~~~~
 
-| listen
-  directiveを利用することにより、NGINXが待ち受けるIPアドレスやポート番号など指定することができます。
+| listen directiveを利用することにより、NGINXが待ち受けるIPアドレスやポート番号など指定することができます。
 | 以下のような記述で意図した動作となるよう設定をします 
+
+   - .. image:: ./media/nginx_listen.jpg
+       :width: 200
+
+   - .. image:: ./media/nginx_listen2.jpg
+       :width: 200
+
 
 ラボで使用するファイルをコピーします
 
@@ -803,11 +840,10 @@ socketを削除し、NGINXが起動することを確認します
    rm default.conf
    service nginx restart
 
-4.  server_name directive (10min)
+6.  server_name directive (10min)
 ~~~~~~~~
 
-server_name
-directiveを利用することにより、待ち受けるFQDNを指定することが可能です。
+server_name directiveを利用することにより、待ち受けるFQDNを指定することが可能です。
 
 ラボで使用するファイルをコピーします
 
@@ -872,6 +908,9 @@ directiveを利用することにより、待ち受けるFQDNを指定するこ�
 
 server_nameの処理順序は以下です
 
+   .. image:: ./media/nginx_server_name.jpg
+       :width: 200
+
 以下のコマンドを実行し結果を確認します。
 どのような処理が行われているか確認してください。
 
@@ -889,7 +928,7 @@ server_nameの処理順序は以下です
    # curl localhost -H 'Host:host2.example.co.jp'
    ~^.*\.example\..*
 
-#.  location directive (10min)
+7.  location directive (10min)
 ~~~~~~~~
 
 ラボで使用するファイルをコピーします
@@ -942,6 +981,10 @@ server_nameの処理順序は以下です
 
 locationの処理順序は以下となります。
 
+   .. image:: ./media/nginx_location.jpg
+       :width: 200
+
+
 期待した結果となることを確認してください。
 
 ::
@@ -954,8 +997,18 @@ locationの処理順序は以下となります。
    # curl http://localhost/app2/index.html
    LOCATION: ~* \.(php|html), URI: /app2/index.html, PORT: 80
 
-#.  Proxy (5min)
+8.  Proxy (5min)
 ~~~~~~~~
+
+   - .. image:: ./media/nginx_proxy.jpg
+       :width: 200
+
+   - .. image:: ./media/nginx_proxy2.jpg
+       :width: 200
+
+   - .. image:: ./media/nginx_proxy2.jpg
+       :width: 200
+
 
 ラボで使用するファイルをコピーします
 
@@ -1008,7 +1061,11 @@ locationの処理順序は以下となります。
      "server_port": "81"
    }
 
-8. Load Balancing (5min)
+9. Load Balancing (5min)
+~~~~~~~~
+
+   .. image:: ./media/nginx_lb.jpg
+       :width: 200
 
 
 ラボで使用するファイルをコピーします
@@ -1072,6 +1129,8 @@ locationの処理順序は以下となります。
 ブラウザでNGINX Plus Dashboardを開きます ``ubuntu01``
 のDashboardへの接続はメニューより ``PLUS  DASHBOARD``
 をクリックしてください
+   .. image:: ./media/nginx_lb2.jpg
+       :width: 200
 
 以下コマンドを実行し、適切に分散されることを確認します。
 
@@ -1099,8 +1158,11 @@ locationの処理順序は以下となります。
 
 Dashboardの結果が適切なweightで分散されていることを確認してください。
 
-#.  トラフィックの暗号化 (5min)
+10.  トラフィックの暗号化 (5min)
 ~~~~~~~~
+
+   .. image:: ./media/nginx_ssl.jpg
+       :width: 200
 
 ラボで使用するファイルをコピーします
 
