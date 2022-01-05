@@ -1,13 +1,13 @@
 
 実施環境
-===
+====
 
 - 事前にラボ環境へのInviteを行っておりますので、メールをご確認ください
 - 利用するコマンド： kubectl git , jq , sudo, curl
 - NGINX Trialライセンスの取得、ラボ実施ユーザのHome Directoryへ配置
 
 座学資料
-===
+====
 
 このラボはNGINX Plusのインストールから各種設定を行っていただけます。
 
@@ -17,7 +17,7 @@ NGINX Plusの基本的な動作や仕様について紹介しております。
 | (このラボはこのセミナーでご紹介した内容を一部抜粋しております)
 
 セミナー資料
----
+----
 
 [これから始めるNGINX技術解説～基本編](https://www.slideshare.net/Nginx/nginx-nginx-back-to-basic-in-jp)
  (2.1～2.3 , 3.1～3.5に該当)   
@@ -26,14 +26,14 @@ NGINX Plusの基本的な動作や仕様について紹介しております。
  (3.6～3.9に該当) 
 
 Webinar(プレゼンテーション・デモ)
----
+----
 
 [これから始めるNGINX技術解説～基本編](https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-jp/)
 
 [これから始めるNGINX技術解説～基本編 Part2](https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-2-jp/)
 
 ラボ環境 (UDF(Unified Demonstration Framework)) コンポーネントへの接続
-===
+====
 
 | 弊社が提供するLAB環境を使って動作を確認いただきます。   
 | ラボ環境を起動する等、一部ブラウザを使って操作します。   
