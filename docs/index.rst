@@ -306,10 +306,10 @@ pidの内容確認
 
    2
 
-NGINX Processの確認 NGINXはMaster Processと通信制御を行うWorker
-Processに分かれる。Worker ProcessはCPU
-Core数の数起動し、並列処理を行う設定となっている。 Master
-ProcessのPIDがPIDファイルに記載されている内容と一致していることを確認する
+NGINX Processの確認
+
+NGINXはMaster Processと通信制御を行うWorker Processに分かれる。Worker ProcessはCPU
+Core数の数起動し、並列処理を行う設定となっている。 Master ProcessのPIDがPIDファイルに記載されている内容と一致していることを確認する
 また、Worker ProcessがCPU Core数の数だけ起動していることを確認する
 
 ::
