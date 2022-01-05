@@ -229,10 +229,10 @@ NGINX App Protect DoS のVersion
 NGINX Plusのアーキテクチャ
 
    - .. image:: ./media/nginx_architecture.jpg
-       :width: 200
+       :width: 400
 
    - .. image:: ./media/nginx_architecture2.jpg
-       :width: 200
+       :width: 400
 
 
 NGINX の停止・起動
@@ -328,20 +328,20 @@ ProcessのPIDがPIDファイルに記載されている内容と一致してい�
 ~~~~~~~~
 
    - .. image:: ./media/nginx_directive.jpg
-       :width: 200
+       :width: 400
 
 
 3. Configの階層構造 (5min)
 ~~~~~~~~
 
    - .. image:: ./media/nginx_directive2.jpg
-       :width: 200
+       :width: 400
 
    - .. image:: ./media/nginx_directive3.jpg
-       :width: 200
+       :width: 400
 
    - .. image:: ./media/nginx_directive4.jpg
-       :width: 200
+       :width: 400
 
 3. 基本的な動作の確認
 ---------------------
@@ -392,10 +392,10 @@ ProcessのPIDがPIDファイルに記載されている内容と一致してい�
 基本的なコマンドと、Signalについて以下を確認してください。 
 
    - .. image:: ./media/nginx_command.jpg
-       :width: 200
+       :width: 400
 
    - .. image:: ./media/nginx_command2.jpg
-       :width: 200
+       :width: 400
 
 
 | NGINX Config Fileを反映する前にテストすることが可能です。コマンドを実行し、テスト結果を確認してください。
@@ -633,10 +633,10 @@ Port 8080 に対し、curlコマンドを実行します。
 NGINXが通信を待ち受ける動作について以下を確認してください。
 
    - .. image:: ./media/nginx_server.jpg
-       :width: 200
+       :width: 400
 
    - .. image:: ./media/nginx_server2.jpg
-       :width: 200
+       :width: 400
 
 ラボで使用するファイルをコピーします
 
@@ -732,10 +732,10 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
 | 以下のような記述で意図した動作となるよう設定をします 
 
    - .. image:: ./media/nginx_listen.jpg
-       :width: 200
+       :width: 400
 
    - .. image:: ./media/nginx_listen2.jpg
-       :width: 200
+       :width: 400
 
 
 ラボで使用するファイルをコピーします
@@ -909,7 +909,7 @@ server_name directiveを利用することにより、待ち受けるFQDNを指�
 server_nameの処理順序は以下です
 
    .. image:: ./media/nginx_server_name.jpg
-       :width: 200
+       :width: 400
 
 以下のコマンドを実行し結果を確認します。
 どのような処理が行われているか確認してください。
@@ -982,7 +982,7 @@ server_nameの処理順序は以下です
 locationの処理順序は以下となります。
 
    .. image:: ./media/nginx_location.jpg
-       :width: 200
+       :width: 400
 
 
 期待した結果となることを確認してください。
@@ -1001,13 +1001,13 @@ locationの処理順序は以下となります。
 ~~~~~~~~
 
    - .. image:: ./media/nginx_proxy.jpg
-       :width: 200
+       :width: 400
 
    - .. image:: ./media/nginx_proxy2.jpg
-       :width: 200
+       :width: 400
 
    - .. image:: ./media/nginx_proxy2.jpg
-       :width: 200
+       :width: 400
 
 
 ラボで使用するファイルをコピーします
@@ -1065,7 +1065,7 @@ locationの処理順序は以下となります。
 ~~~~~~~~
 
    .. image:: ./media/nginx_lb.jpg
-       :width: 200
+       :width: 400
 
 
 ラボで使用するファイルをコピーします
@@ -1130,7 +1130,7 @@ locationの処理順序は以下となります。
 のDashboardへの接続はメニューより ``PLUS  DASHBOARD``
 をクリックしてください
    .. image:: ./media/nginx_lb2.jpg
-       :width: 200
+       :width: 400
 
 以下コマンドを実行し、適切に分散されることを確認します。
 
@@ -1162,7 +1162,7 @@ Dashboardの結果が適切なweightで分散されていることを確認し�
 ~~~~~~~~
 
    .. image:: ./media/nginx_ssl.jpg
-       :width: 200
+       :width: 400
 
 ラボで使用するファイルをコピーします
 
