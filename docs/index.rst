@@ -16,7 +16,7 @@ NGINX Plusの基本的な動作や仕様について紹介しております。
 | (このラボはこのセミナーでご紹介した内容を一部抜粋しております)
 
 セミナー資料
-~~~~~~~~~~~~
+-----
 
 `これから始めるNGINX技術解説～基本編 <https://www.slideshare.net/Nginx/nginx-nginx-back-to-basic-in-jp>`__
 (2.1～2.3 , 3.1～3.5に該当)
@@ -26,7 +26,7 @@ Part2 <https://www.slideshare.net/Nginx/nginx-back-to-basic-2-part-2-japanese-we
 (3.6～3.9に該当)
 
 Webinar(プレゼンテーション・デモ)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----
 
 `これから始めるNGINX技術解説～基本編 <https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-jp/>`__
 
@@ -43,8 +43,10 @@ Part2 <https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-2-jp/>`__
 | 参照：\ `UDF Supported Browsers and
   Clients <https://help.udf.f5.com/en/articles/3470266-supported-browsers-and-clients>`__
 
+
 Windows Jump HostへのRDP接続
 ----------------------------
+
 
 Windows Jump HostからCLIの操作を行う場合、以下タブからRDP Clientファイルをダウンロードいただき接続ください
 
@@ -71,8 +73,10 @@ Clientのショートカットがありますので、そちらをダブルク�
    - .. image:: ./media/putty_menu.jpg
       :width: 200
 
+
 Linux Hostへの接続 (Jump Host を利用しない場合)
 -----------------------------------------------
+
 
 ``ubuntu01`` へのSSH接続は、Jump Host経由
 または、SSH鍵認証を用いて接続可能です。SSH鍵の登録手順は以下を参照ください
@@ -95,6 +99,7 @@ Ubuntu <https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-ngi
    ただし、本ラボでセキュリティ機能の確認はありません
 
 #. NGINX Licenseファイルのコピー
+~~~~~~~~
 
 | ライセンスファイルをコピーしてください
   ファイルがラボ環境に配置されていない場合、トライアルを申請し証明書と鍵を取得してください
@@ -116,6 +121,7 @@ Ubuntu <https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-ngi
    sudo cp ~/nginx-repo.key /etc/ssl/nginx/
 
 #. コマンドの実行
+~~~~~~~~
 
 
 NGINX、App Protect WAF と App Protect DoS
@@ -164,6 +170,7 @@ aptコマンドの設定情報を取得します
    sudo apt-get update
 
 #. NGINX パッケージのインストール
+~~~~~~~~
 
 
 ::
