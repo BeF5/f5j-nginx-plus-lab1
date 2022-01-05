@@ -1,53 +1,3 @@
-目次
-====
-
--  `目次 <#目次>`__
--  `実施環境 <#実施環境>`__
--  `座学資料 <#座学資料>`__
-
-   -  `セミナー資料 <#セミナー資料>`__
-   -  `Webinar(プレゼンテーション・デモ) <#webinarプレゼンテーションデモ>`__
-
--  `ラボ環境 (UDF(Unified Demonstration Framework))
-   コンポーネントへの接続 <#ラボ環境-udfunified-demonstration-framework-コンポーネントへの接続>`__
-
-   -  `Windows Jump HostへのRDP接続 <#windows-jump-hostへのrdp接続>`__
-   -  `Linux Hostへの接続 (Jump Host
-      を利用しない場合) <#linux-hostへの接続-jump-host-を利用しない場合>`__
-
--  `NGINX Plus の動作 <#nginx-plus-の動作>`__
-
-   -  `1. NGINX Plusのインストール
-      (15min) <#1-nginx-plusのインストール-15min>`__
-
-      -  `NGINX
-         Licenseファイルのコピー <#nginx-licenseファイルのコピー>`__
-      -  `コマンドの実行 <#コマンドの実行>`__
-      -  `NGINX
-         パッケージのインストール <#nginx-パッケージのインストール>`__
-
-   -  `2. NGINXの基礎 <#2-nginxの基礎>`__
-
-      -  `1. ステータスの確認 (5min) <#1-ステータスの確認-5min>`__
-      -  `2. Directive / Block (5min) <#2-directive--block-5min>`__
-      -  `3. Configの階層構造 (5min) <#3-configの階層構造-5min>`__
-
-   -  `3. 基本的な動作の確認 <#3-基本的な動作の確認>`__
-
-      -  `0. 事前ファイルの取得 (5min) <#0-事前ファイルの取得-5min>`__
-      -  `1. 設定のテスト、設定の反映
-         (10min) <#1-設定のテスト設定の反映-10min>`__
-      -  `2. 設定の継承 (10min) <#2-設定の継承-10min>`__
-      -  `3. server directive (10min) <#3-server-directive-10min>`__
-      -  `4. listen directive (10min) <#4-listen-directive-10min>`__
-      -  `5. server_name directive
-         (10min) <#5-server_name-directive-10min>`__
-      -  `6. location directive (10min) <#6-location-directive-10min>`__
-      -  `7. Proxy (5min) <#7-proxy-5min>`__
-      -  `8. Load Balancing (5min) <#8-load-balancing-5min>`__
-      -  `9. トラフィックの暗号化
-         (5min) <#9-トラフィックの暗号化-5min>`__
-
 実施環境
 ========
 
@@ -96,34 +46,50 @@ Part2 <https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-2-jp/>`__
 Windows Jump HostへのRDP接続
 ----------------------------
 
-Windows Jump HostからCLIの操作を行う場合、以下タブからRDP
-Clientファイルをダウンロードいただき接続ください
+Windows Jump HostからCLIの操作を行う場合、以下タブからRDP Clientファイルをダウンロードいただき接続ください
 
+   .. image:: ./media/udf_jumpbox.png
+      :width: 200
+
+.. NOTE::
    | RDPのUser名、パスワードはDETAILSをクリックし、GeneralのタブのCredentialsの項目を参照ください
    | ``user`` でログインしてください 
 
+   - .. image:: ./media/udf_jumpbox_loginuser.png
+       :width: 200
+    
+   - .. image:: ./media/udf_jumpbox_loginuser2.png
+       :width: 200
+   
 Windows Jump Hostへログインいただくと、SSH
 Clientのショートカットがありますので、そちらをダブルクリックし
 ``ubuntu01`` へ接続ください
+
+   - .. image:: ./media/putty_icon.jpg
+      :width: 50
+
+   - .. image:: ./media/putty_menu.jpg
+      :width: 200
 
 Linux Hostへの接続 (Jump Host を利用しない場合)
 -----------------------------------------------
 
 ``ubuntu01`` へのSSH接続は、Jump Host経由
 または、SSH鍵認証を用いて接続可能です。SSH鍵の登録手順は以下を参照ください
-**SSH鍵を登録頂いていない場合、SSHはグレーアウトします** UDF LAB
-SSH鍵登録マニュアル (ラボ実施時閲覧可に変更します)
+**SSH鍵を登録頂いていない場合、SSHはグレーアウトします** `UDF LAB SSH鍵登録マニュアル <https://github.com/hiropo20/partner_nap_workshop_secure/blob/main/UDF_SSH_Key.pdf>`_
+ (ラボ実施時閲覧可に変更します)
 
 NGINX Plus の動作
 =================
 
-1. NGINX Plusのインストール (15min)
+#. NGINX Plusのインストール (15min)
 -----------------------------------
 
-本ページに記載する手順に従ってNGINX Plus をインストールします
-参考：\ `Installing NGINX Plus on
+| 本ページに記載する手順に従ってNGINX Plus をインストールします
+| 参考：\ `Installing NGINX Plus on
 Ubuntu <https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-plus/#installing-nginx-plus-on-ubuntu>`__
 
+.. NOTE::
    手順確認の目的で、NGINX Plusの他、NGINX App Protect WAF、NGINX App
    Protect Dosのインストール手順も示しています。
    ただし、本ラボでセキュリティ機能の確認はありません
@@ -135,6 +101,7 @@ NGINX Licenseファイルのコピー
   ファイルがラボ環境に配置されていない場合、トライアルを申請し証明書と鍵を取得してください
 | トライアルの申請方法は\ `トライアル申請方法 <https://github.com/hiropo20/nginx_how_to_get_plus_trial>`__\ を参照してください
 
+.. NOTE::
    取得したライセンスファイルを\ ``Jump Host``\ にコピーした後、\ ``ubuntu-01``\ に送信するために\ ``pscp``\ をご利用いただくことが可能です。以下コマンドを参考にご利用ください。コマンドプロンプト、powershellなどのターミナルから実行いただけます
 
    ::
