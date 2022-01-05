@@ -180,8 +180,9 @@ aptコマンドの設定情報を取得します
    sudo apt-get install -y app-protect-dos
 
 インスールしたパッケージの情報の確認
-参考となる記事はこちらです。K72015934: Display the NGINX software
-version　https://support.f5.com/csp/article/K72015934
+
+| 参考となる記事はこちらです。
+| `K72015934: Display the NGINX software version <https://support.f5.com/csp/article/K72015934>`__
 
 ::
 
@@ -308,7 +309,7 @@ pidの内容確認
 
 NGINX Processの確認
 
-NGINXはMaster Processと通信制御を行うWorker Processに分かれる。Worker ProcessはCPU
+| NGINXはMaster Processと通信制御を行うWorker Processに分かれる。Worker ProcessはCPU
 Core数の数起動し、並列処理を行う設定となっている。 Master ProcessのPIDがPIDファイルに記載されている内容と一致していることを確認する
 また、Worker ProcessがCPU Core数の数だけ起動していることを確認する
 
