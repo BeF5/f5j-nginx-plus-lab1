@@ -98,7 +98,7 @@ Ubuntu <https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-ngi
    Protect Dosのインストール手順も示しています。
    ただし、本ラボでセキュリティ機能の確認はありません
 
-#. NGINX Licenseファイルのコピー
+1. NGINX Licenseファイルのコピー
 ~~~~~~~~
 
 | ライセンスファイルをコピーしてください
@@ -120,7 +120,7 @@ Ubuntu <https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-ngi
    sudo cp ~/nginx-repo.crt /etc/ssl/nginx/
    sudo cp ~/nginx-repo.key /etc/ssl/nginx/
 
-#. コマンドの実行
+2. コマンドの実行
 ~~~~~~~~
 
 
@@ -169,7 +169,7 @@ aptコマンドの設定情報を取得します
 
    sudo apt-get update
 
-#. NGINX パッケージのインストール
+3. NGINX パッケージのインストール
 ~~~~~~~~
 
 
@@ -223,7 +223,8 @@ NGINX App Protect DoS のVersion
 2. NGINXの基礎
 --------------
 
-#. ステータスの確認 (5min)
+1. ステータスの確認 (5min)
+~~~~~~~~
 
 NGINX Plusのアーキテクチャ
 
@@ -316,19 +317,20 @@ ProcessのPIDがPIDファイルに記載されている内容と一致してい�
    nginx       9149  0.0  0.1   9764  3528 ?        S    10:12   0:00 nginx: worker process
 
 
-#. Directive / Block (5min)
+1. Directive / Block (5min)
+~~~~~~~~
 
 
-
-#. Configの階層構造 (5min)
+2. Configの階層構造 (5min)
+~~~~~~~~
 
 
 3. 基本的な動作の確認
 ---------------------
 
 
-#.  事前ファイルの取得 (5min)
-
+1.  事前ファイルの取得 (5min)
+~~~~~~~~
 
 ラボで必要なファイルをGitHubから取得
 
@@ -339,8 +341,8 @@ ProcessのPIDがPIDファイルに記載されている内容と一致してい�
    git clone https://github.com/hiropo20/back-to-basic_plus/
 
 
-#.  設定のテスト、設定の反映 (10min)
-
+2.  設定のテスト、設定の反映 (10min)
+~~~~~~~~
 
 ディレクトリを移動し、必要なファイルをコピーします
 
@@ -526,8 +528,8 @@ curlコマンドを実行します。
 
    <title>Welcome to nginx!</title>
 
-#.  設定の継承 (10min)
-
+3.  設定の継承 (10min)
+~~~~~~~~
 
 ラボで使用するファイルをコピーします
 
@@ -601,7 +603,7 @@ Port 8080 に対し、curlコマンドを実行します。
        <h2>path: html/main.html</h2>
 
 #.  server directive (10min)
-
+~~~~~~~~
 
 NGINXが通信を待ち受ける動作について以下を確認してください。
 
@@ -693,7 +695,7 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
 このようにdefaultパラメータの動作を確認できました
 
 #.  listen directive (10min)
-
+~~~~~~~~
 
 | listen
   directiveを利用することにより、NGINXが待ち受けるIPアドレスやポート番号など指定することができます。
@@ -801,8 +803,8 @@ socketを削除し、NGINXが起動することを確認します
    rm default.conf
    service nginx restart
 
-#.  server_name directive (10min)
-
+4.  server_name directive (10min)
+~~~~~~~~
 
 server_name
 directiveを利用することにより、待ち受けるFQDNを指定することが可能です。
@@ -888,7 +890,7 @@ server_nameの処理順序は以下です
    ~^.*\.example\..*
 
 #.  location directive (10min)
-
+~~~~~~~~
 
 ラボで使用するファイルをコピーします
 
@@ -953,7 +955,7 @@ locationの処理順序は以下となります。
    LOCATION: ~* \.(php|html), URI: /app2/index.html, PORT: 80
 
 #.  Proxy (5min)
-
+~~~~~~~~
 
 ラボで使用するファイルをコピーします
 
@@ -1098,7 +1100,7 @@ locationの処理順序は以下となります。
 Dashboardの結果が適切なweightで分散されていることを確認してください。
 
 #.  トラフィックの暗号化 (5min)
-
+~~~~~~~~
 
 ラボで使用するファイルをコピーします
 
