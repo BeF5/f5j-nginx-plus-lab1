@@ -73,7 +73,53 @@ Windows Jump Hostへログインいただくと、SSH Clientのショートカ�
       :width: 200
 
 
+Linux Hostへの接続 (Jump Host を利用しない場合)
+----
 
+   .. image:: ./media/udf_ssh_direct.jpg
+      :width: 200
+
+`ubuntu01` へのSSH接続は、Jump Host経由 または、SSH鍵認証を用いて接続可能です。SSH鍵の登録手順は以下を参照ください
+***SSH鍵を登録頂いていない場合、SSHはグレーアウトします***
+
+`UDF LAB SSH鍵登録マニュアル <https://github.com/hiropo20/partner_nap_workshop_secure/blob/main/UDF_SSH_Key.pdf>`_
+(ラボで必要となる場合、閲覧可に変更します)
+
+NGINX Plus の動作
+====
+
+1. NGINX Plusのインストール (15min)
+----
+
+本ページに記載する手順に従ってNGINX Plus をインストールします
+参考：`Installing NGINX Plus on Ubuntu <https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-plus/#installing-nginx-plus-on-ubuntu>`_
+
+
+.. NOTE::
+   | 手順確認の目的で、NGINX Plusの他、NGINX App Protect WAF、NGINX App Protect Dosのインストール手順も示しています。
+   | ただし、本ラボでセキュリティ機能の確認はありません
+
+
+NGINX Licenseファイルのコピー
+^^^^
+
+| ライセンスファイルをコピーしてください
+| ファイルがラボ環境に配置されていない場合、トライアルを申請し証明書と鍵を取得してください   
+| トライアルの申請方法は`トライアル申請方法 <https://github.com/hiropo20/nginx_how_to_get_plus_trial`_を参照してください
+
+
+| 取得したライセンスファイルを`Jump Host`にコピーした後、`ubuntu-01`に送信するために`pscp`をご利用いただくことが可能です。以下コマンドを参考にご利用ください。コマンドプロンプト、powershellなどのターミナルから実行いただけます
+| ```
+| コマンド: pscp -i <SSHで利用する公開鍵> <送付するファイル> <宛先>
+| 
+| pscp -i .\.ssh\id_rsa-putty.ppk <送信するファイル> ubuntu@10.1.1.7:/home/ubuntu
+| ```
+
+```
+sudo mkdir -p /etc/ssl/nginx
+sudo cp ~/nginx-repo.crt /etc/ssl/nginx/
+sudo cp ~/nginx-repo.key /etc/ssl/nginx/
+```
 
 .. toctree::
    :titlesonly:
