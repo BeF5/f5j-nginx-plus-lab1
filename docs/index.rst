@@ -26,8 +26,8 @@ F5 Labs - Index
 Webinar(プレゼンテーション・デモ)
 -----
 
-`これから始めるNGINX技術解説～基本編 <https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-jp/>`__
-`これから始めるNGINX技術解説～基本編 Part2 <https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-2-jp/>`__
+| `これから始めるNGINX技術解説～基本編 <https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-jp/>`__
+| `これから始めるNGINX技術解説～基本編 Part2 <https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-2-jp/>`__
 
 
 
