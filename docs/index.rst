@@ -12,28 +12,22 @@ F5 Labs - Index
 座学資料
 ========
 
-このラボはNGINX Plusのインストールから各種設定を行っていただけます。
-
-NGINX Plusの基本的な動作や仕様について紹介しております。
-
+| このラボはNGINX Plusのインストールから各種設定を行っていただけます。
+| NGINX Plusの基本的な動作や仕様について紹介しております。
 | 基本的な解説資料は以下を参照してください。
 | (このラボはこのセミナーでご紹介した内容を一部抜粋しております)
 
 セミナー資料
 -----
 
-`これから始めるNGINX技術解説～基本編 <https://www.slideshare.net/Nginx/nginx-nginx-back-to-basic-in-jp>`__
-(2.1～2.3 , 3.1～3.5に該当)
-
-`これから始めるNGINX技術解説～基本編
-Part2 <https://www.slideshare.net/Nginx/nginx-back-to-basic-2-part-2-japanese-webinar>`__
-(3.6～3.9に該当)
+| `これから始めるNGINX技術解説～基本編 <https://www.slideshare.net/Nginx/nginx-nginx-back-to-basic-in-jp>`__ (NGINX LAB 2.1～2.3 , 3.1～3.5に該当)
+| `これから始めるNGINX技術解説～基本編
+Part2 <https://www.slideshare.net/Nginx/nginx-back-to-basic-2-part-2-japanese-webinar>`__ (NGINX LAB 3.6～3.9に該当)
 
 Webinar(プレゼンテーション・デモ)
 -----
 
 `これから始めるNGINX技術解説～基本編 <https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-jp/>`__
-
 `これから始めるNGINX技術解説～基本編
 Part2 <https://www.nginx.co.jp/resources/webinars/nginx-back-to-basic-2-jp/>`__
 
