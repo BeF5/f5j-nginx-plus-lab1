@@ -843,6 +843,8 @@ server_nameの処理順序は以下です
    ・正規表現のはじめに一致する結果を確認
    # curl localhost -H 'Host:host2.example.co.jp'
    ~^.*\.example\..*
+   # curl localhost -H 'Host:host2.example.com'
+   ~^(www2|host2).*\.example\.com
 
 7.  location directive (10min)
 ~~~~~~~~
