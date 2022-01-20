@@ -1047,6 +1047,7 @@ locationの処理順序は以下となります。
 ブラウザでNGINX Plus Dashboardを開きます ``ubuntu01``
 のDashboardへの接続はメニューより ``PLUS  DASHBOARD``
 をクリックしてください
+
    .. image:: ./media/nginx_lb2.jpg
        :width: 400
 
