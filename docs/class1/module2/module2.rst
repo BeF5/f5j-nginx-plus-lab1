@@ -1048,7 +1048,7 @@ locationの処理順序は以下となります。
 のDashboardへの接続はメニューより ``PLUS  DASHBOARD``
 をクリックしてください
 
-   .. image:: ./media/nginx_lb2.jpg
+   .. image:: ./media/nginx_lb2.png
        :width: 400
 
 以下コマンドを実行し、適切に分散されることを確認します。
