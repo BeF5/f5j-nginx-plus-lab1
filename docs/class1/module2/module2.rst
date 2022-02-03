@@ -94,7 +94,7 @@ aptコマンドの設定情報を取得します
    sudo apt-get install -y app-protect app-protect-attack-signatures
    sudo apt-get install -y app-protect-dos
 
-インスールしたパッケージの情報の確認
+インストールしたパッケージの情報の確認
 
 | 参考となる記事はこちらです。
 | `K72015934: Display the NGINX software version <https://support.f5.com/csp/article/K72015934>`__
