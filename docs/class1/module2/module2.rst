@@ -924,7 +924,7 @@ locationの処理順序は以下となります。
    - .. image:: ./media/nginx_proxy2.jpg
        :width: 400
 
-   - .. image:: ./media/nginx_proxy2.jpg
+   - .. image:: ./media/nginx_proxy3.jpg
        :width: 400
 
 
