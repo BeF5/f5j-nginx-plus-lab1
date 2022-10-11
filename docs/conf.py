@@ -334,6 +334,7 @@ epub_copyright = copyright
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
+html_css_files = ['css/f5_agility_theme.css']
 
 # The depth of the table of contents in toc.ncx.
 #
