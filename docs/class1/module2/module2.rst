@@ -23,7 +23,7 @@ NGINX Plus の動作
 .. NOTE::
    取得したライセンスファイルを\ ``Jump Host``\ にコピーした後、\ ``ubuntu-01``\ に送信するために\ ``pscp``\ をご利用いただくことが可能です。以下コマンドを参考にご利用ください。コマンドプロンプト、powershellなどのターミナルから実行いただけます
 
-   ::
+   .. code-block:: bash
 
       コマンド: pscp -i <SSHで利用する公開鍵> <送付するファイル> <宛先>
 
@@ -42,7 +42,7 @@ NGINX Plus の動作
 NGINX、App Protect WAF と App Protect DoS
 のリポジトリに利用する鍵を取得します
 
-::
+.. code-block:: cmdin
 
    sudo wget https://cs.nginx.com/static/keys/nginx_signing.key && sudo apt-key add nginx_signing.key
 
@@ -50,13 +50,13 @@ NGINX、App Protect WAF と App Protect DoS
 
 必要となるパッケージをインストールします
 
-::
+.. code-block:: cmdin
 
    sudo apt-get install -y apt-transport-https lsb-release ca-certificates wget
 
 レポジトリの情報を追加します
 
-::
+.. code-block:: cmdin
 
    # NGINX Plusのレポジトリ情報
    printf "deb https://pkgs.nginx.com/plus/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-plus.list
@@ -74,13 +74,13 @@ NGINX、App Protect WAF と App Protect DoS
 
 aptコマンドの設定情報を取得します
 
-::
+.. code-block:: cmdin
 
    sudo wget -P /etc/apt/apt.conf.d https://cs.nginx.com/static/files/90pkgs-nginx
 
 パッケージ情報を更新します
 
-::
+.. code-block:: cmdin
 
    sudo apt-get update
 
@@ -88,7 +88,7 @@ aptコマンドの設定情報を取得します
 ~~~~~~~~
 
 
-::
+.. code-block:: cmdin
 
    sudo apt-get install -y nginx-plus
    sudo apt-get install -y app-protect app-protect-attack-signatures
@@ -99,32 +99,36 @@ aptコマンドの設定情報を取得します
 | 参考となる記事はこちらです。
 | `K72015934: Display the NGINX software version <https://support.f5.com/csp/article/K72015934>`__
 
-::
+.. code-block:: cmdin
 
    nginx -v
 
 NGINX App Protect のVersion
 
-::
+.. code-block:: cmdin
 
    cat /opt/app_protect/VERSION
 
 NGINX App Protect DoS のVersion
 
-::
+.. code-block:: cmdin
 
    admd -v
 
 その他インストールしたパッケージの情報を確認いただけます。ラボ環境のホストはUbuntuとなります。
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    # dpkg-query -l | grep nginx-plus
    ii  nginx-plus                         25-1~focal                            amd64        NGINX Plus, provided by Nginx, Inc.
    ii  nginx-plus-module-appprotect       25+3.671.0-1~focal                    amd64        NGINX Plus app protect dynamic module version 3.671.0
    ii  nginx-plus-module-appprotectdos    25+2.0.1-1~focal                      amd64        NGINX Plus appprotectdos dynamic module
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    # dpkg-query -l | grep app-protect
 
@@ -153,20 +157,22 @@ NGINX Plusのアーキテクチャ
 
 NGINX の停止・起動
 
-::
+.. code-block:: cmdin
 
    sudo service nginx stop
    sudo service nginx start
 
 NGINX のstatus
 
-::
+.. code-block:: cmdin
 
    sudo service nginx status
 
 実行結果サンプル
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    ● nginx.service - NGINX Plus - high performance web server
         Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
@@ -188,37 +194,41 @@ NGINX のstatus
 
 pidファイルの配置場所の確認
 
-::
+.. code-block:: cmdin
 
    grep pid /etc/nginx/nginx.conf
 
 実行結果
 
-::
+.. code-block:: cmdin
 
    pid        /var/run/nginx.pid;
 
 pidの内容確認
 
-::
+.. code-block:: cmdin
 
    cat /var/run/nginx.pid
 
 実行結果サンプル
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    9147
 
 論理コア数の確認
 
-::
+.. code-block:: cmdin
 
    grep processor /proc/cpuinfo | wc -l
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    2
 
@@ -228,7 +238,9 @@ NGINX Processの確認
 Core数の数起動し、並列処理を行う設定となっている。 Master ProcessのPIDがPIDファイルに記載されている内容と一致していることを確認する
 また、Worker ProcessがCPU Core数の数だけ起動していることを確認する
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    # ps aux | grep nginx
    nginx       9122  0.0  0.0   2616   608 ?        Ss   10:12   0:00 /bin/sh -c usr/share/ts/bin/bd-socket-plugin tmm_count 4 proc_cpuinfo_cpu_mhz 2000000 total_xml_memory 307200000 total_umu_max_size 3129344 sys_max_account_id 1024 no_static_config 2>&1 >> /var/log/app_protect/bd-socket-plugin.log
@@ -268,7 +280,7 @@ Core数の数起動し、並列処理を行う設定となっている。 Master
 
 ラボで必要なファイルをGitHubから取得
 
-::
+.. code-block:: cmdin
 
    sudo su - 
    cd ~/
@@ -280,20 +292,22 @@ Core数の数起動し、並列処理を行う設定となっている。 Master
 
 ディレクトリを移動し、必要なファイルをコピーします
 
-::
+.. code-block:: cmdin
 
    cd /etc/nginx/conf.d/
    cp ~/back-to-basic_plus/lab/m1-1_demo.conf default.conf
 
 設定ファイルの内容を確認します
 
-::
+.. code-block:: cmdin
 
    cat default.conf
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    server {
        # you need to add ; at end of listen directive.
@@ -319,7 +333,9 @@ Core数の数起動し、並列処理を行う設定となっている。 Master
 
 まず、オプションの内容を確認してください。
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    # nginx -h
    nginx version: nginx/1.21.3 (nginx-plus-r25)
@@ -341,13 +357,15 @@ Core数の数起動し、並列処理を行う設定となっている。 Master
 
 テストを実行します(\ ``-t``)
 
-::
+.. code-block:: cmdin
 
    nginx -t
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    nginx: [emerg] invalid parameter "server_name" in /etc/nginx/conf.d/default.conf:4
    nginx: configuration file /etc/nginx/nginx.conf test failed
@@ -356,13 +374,15 @@ Core数の数起動し、並列処理を行う設定となっている。 Master
   これは、その一つ前の行が正しく「；(セミコロン)」で終わっていないことが問題となります。
 | エディタで設定ファイルを開き修正してください
 
-::
+.. code-block:: cmdin
 
    vi default.conf
 
 変更内容
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    listen directiveの文末に ; を追加してください。
    ---
@@ -379,20 +399,24 @@ Core数の数起動し、並列処理を行う設定となっている。 Master
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
    nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 ``-T`` の実行
 
-::
+.. code-block:: cmdin
 
    nginx -T
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
    nginx: configuration file /etc/nginx/nginx.conf test is successful
@@ -446,26 +470,30 @@ Core数の数起動し、並列処理を行う設定となっている。 Master
 | 設定の読み込み、動作確認をします。
 | 正しく Port 81 でListenしていることを確認してください
 
-::
+.. code-block:: cmdin
 
    nginx -s reload
    ss -anp | grep nginx | grep LISTEN
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    tcp    LISTEN  0       511                                              0.0.0.0:81                                                0.0.0.0:*                      users:(("nginx",pid=9341,fd=12),("nginx",pid=9340,fd=12),("nginx",pid=9147,fd=12))
 
 curlコマンドを実行します。
 
-::
+.. code-block:: cmdin
 
    curl -s localhost:81 | grep title
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    <title>Welcome to nginx!</title>
 
@@ -474,7 +502,7 @@ curlコマンドを実行します。
 
 ラボで使用するファイルをコピーします
 
-::
+.. code-block:: cmdin
 
    cp -r ~/back-to-basic_plus/html .
    cp ~/back-to-basic_plus/lab/m2-1_demo.conf default.conf
@@ -486,13 +514,15 @@ listen 80では、indexを個別に記述をしていません。 listen
 8080では、indexとして main.html を指定しています。 また、それぞれ root
 の記述方法が異なっています。
 
-::
+.. code-block:: cmdin
 
    cat default.conf
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    index index.html;
    server {
@@ -507,39 +537,45 @@ listen 80では、indexを個別に記述をしていません。 listen
 
 設定を反映し、これらがどのように動作するのか見てみましょう。
 
-::
+.. code-block:: cmdin
 
    nginx -s reload
    ss -anp | grep nginx | grep LISTEN
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    tcp    LISTEN  0       511                                              0.0.0.0:8080                                              0.0.0.0:*                      users:(("nginx",pid=9392,fd=9),("nginx",pid=9391,fd=9),("nginx",pid=9147,fd=9))
    tcp    LISTEN  0       511                                              0.0.0.0:80                                                0.0.0.0:*                      users:(("nginx",pid=9392,fd=8),("nginx",pid=9391,fd=8),("nginx",pid=9147,fd=8))
 
 Port 80 に対し、curlコマンドを実行します。
 
-::
+.. code-block:: cmdin
 
    curl -s localhost:80 | grep path
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
        <h2>path: html/index.html</h2>     
 
 Port 8080 に対し、curlコマンドを実行します。
 
-::
+.. code-block:: cmdin
 
    curl -s localhost:8080 | grep path
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
        <h2>path: html/main.html</h2>
 
@@ -556,19 +592,21 @@ NGINXが通信を待ち受ける動作について以下を確認してくださ
 
 ラボで使用するファイルをコピーします
 
-::
+.. code-block:: cmdin
 
    cp ~/back-to-basic_plus/lab/m3-1_demo.conf default.conf
 
 設定内容を確認します。
 
-::
+.. code-block:: cmdin
 
    cat default.conf
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    server {
 
@@ -576,27 +614,31 @@ NGINXが通信を待ち受ける動作について以下を確認してくださ
 
 設定を反映します。
 
-::
+.. code-block:: cmdin
 
    nginx -s reload
    ss -anp | grep nginx | grep LISTEN
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    tcp    LISTEN  0       511                                              0.0.0.0:80                                                0.0.0.0:*                      users:(("nginx",pid=9445,fd=8),("nginx",pid=9444,fd=8),("nginx",pid=9147,fd=8))
 
 | 設定が反映され、80でListenしていることが確認できます。
 | curlコマンドで結果を確認します。
 
-::
+.. code-block:: cmdin
 
    curl localhost:80
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    <html>
    <head><title>404 Not Found</title></head>
@@ -620,7 +662,7 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
 
 それでは対象となるディレクトリにファイルをコピーします。
 
-::
+.. code-block:: cmdin
 
    mkdir ../html
    cp html/m3-1_index.html ../html/index.html
@@ -628,13 +670,15 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
 | htmlファイルを配置しました。
 | 設定ファイルに変更は加えておりませんので、再度curlコマンドで結果を確認します
 
-::
+.. code-block:: cmdin
 
    curl -s localhost:80 | grep default
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
        <h2>This is default html file path</h2>
 
@@ -656,19 +700,21 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
 
 ラボで使用するファイルをコピーします
 
-::
+.. code-block:: cmdin
 
    cp ~/back-to-basic_plus/lab/m3-2_demo.conf default.conf
 
 設定内容を確認し、反映します
 
-::
+.. code-block:: cmdin
 
    cat default.conf
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    # server {
    #    ## no listen directive
@@ -692,7 +738,7 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
 
 設定を反映します。
 
-::
+.. code-block:: cmdin
 
    service nginx restart
 
@@ -701,25 +747,29 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
 
 ソケットが生成されていることを確認
 
-::
+.. code-block:: cmdin
 
    ls /var/run/nginx.sock
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    /var/run/nginx.sock
 
 NGINXでListenしている内容を確認
 
-::
+.. code-block:: cmdin
 
    ss -anp | grep nginx | grep LISTEN
 
 実行結果サンプル
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    u_str LISTEN    0      511                                  /var/run/nginx.sock 60394                                                   * 0                      users:(("nginx",pid=9947,fd=9),("nginx",pid=9946,fd=9),("nginx",pid=9945,fd=9))
    tcp   LISTEN    0      511                                            127.0.0.2:80                                                0.0.0.0:*                      users:(("nginx",pid=9947,fd=7),("nginx",pid=9946,fd=7),("nginx",pid=9945,fd=7))
@@ -728,29 +778,49 @@ NGINXでListenしている内容を確認
 
 それぞれ Listen している内容に対して接続できることを確認してください
 
-::
+.. code-block:: cmdin
 
-   # curl -s 127.0.0.1:8080 | grep default
+   curl -s 127.0.0.1:8080 | grep default
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
        <h2>This is default html file path</h2>
 
-::
+.. code-block:: cmdin
 
-   # curl -s 127.0.0.2:80 | grep default
+   curl -s 127.0.0.2:80 | grep default
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
        <h2>This is default html file path</h2>
 
-::
+.. code-block:: cmdin
 
-   # curl -s 127.0.0.1:8081 | grep default
+   curl -s 127.0.0.1:8081 | grep default
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
        <h2>This is default html file path</h2>
 
-::
+.. code-block:: cmdin
 
-   # curl -s --unix-socket /var/run/nginx.sock http: | grep default
+   curl -s --unix-socket /var/run/nginx.sock http: | grep default
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
        <h2>This is default html file path</h2>
 
 socketを削除し、NGINXが起動することを確認します
 
-::
+.. code-block:: cmdin
 
    rm /var/run/nginx.sock
    rm default.conf
@@ -769,13 +839,15 @@ server_name directiveを利用することにより、待ち受けるFQDNを指�
 
 設定内容を確認し、反映します
 
-::
+.. code-block:: cmdin
 
    cat default.conf
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    server {
        server_name example.com;
@@ -818,7 +890,7 @@ server_name directiveを利用することにより、待ち受けるFQDNを指�
 
 設定を反映します。
 
-::
+.. code-block:: cmdin
 
    nginx -s reload
 
@@ -830,20 +902,41 @@ server_nameの処理順序は以下です
 以下のコマンドを実行し結果を確認します。
 どのような処理が行われているか確認してください。
 
-::
+.. code-block:: cmdin
 
    ・完全一致する結果を確認
    # curl localhost -H 'Host:host1.example.com'
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
    host1.example.com
 
    ・Wild Cardの前方一致する結果を確認
    # curl localhost -H 'Host:www.example.co.jp'
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
    www.example.*
 
    ・正規表現のはじめに一致する結果を確認
    # curl localhost -H 'Host:host2.example.co.jp'
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
    ~^.*\.example\..*
    # curl localhost -H 'Host:host2.example.com'
+
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
    ~^(www2|host2).*\.example\.com
 
 7.  location directive (10min)
@@ -851,19 +944,21 @@ server_nameの処理順序は以下です
 
 ラボで使用するファイルをコピーします
 
-::
+.. code-block:: cmdin
 
    cp ~/back-to-basic_plus/lab/m4-1_demo.conf default.conf
 
 設定内容を確認し、反映します
 
-::
+.. code-block:: cmdin
 
    cat default.conf
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    server {
       listen 80;
@@ -893,7 +988,7 @@ server_nameの処理順序は以下です
 
 設定を反映します。
 
-::
+.. code-block:: cmdin
 
    nginx -s reload
 
@@ -905,14 +1000,24 @@ locationの処理順序は以下となります。
 
 期待した結果となることを確認してください。
 
-::
+.. code-block:: cmdin
 
    ・前方一致する結果を確認
    # curl http://localhost/app1/index.html
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
    LOCATION: ^~ /app1, URI: /app1/index.html, PORT: 80
 
    ・正規表現で一致する結果を確認
    # curl http://localhost/app2/index.html
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
    LOCATION: ~* \.(php|html), URI: /app2/index.html, PORT: 80
 
 8.  Proxy (5min)
@@ -930,19 +1035,21 @@ locationの処理順序は以下となります。
 
 ラボで使用するファイルをコピーします
 
-::
+.. code-block:: cmdin
 
    cp ~/back-to-basic_plus/lab/m5-1_demo.conf default.conf
 
 設定内容を確認し、反映します
 
-::
+.. code-block:: cmdin
 
    cat default.conf
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    server {
        listen 80;
@@ -957,22 +1064,32 @@ locationの処理順序は以下となります。
 
 設定を反映します
 
-::
+.. code-block:: cmdin
 
    # nginx -s reload
 
 以下のコマンドを実行し結果を確認します。
 どのような処理が行われているか確認してください。
 
-::
+.. code-block:: cmdin
 
-   # curl -s localhost/app1/usr1/index.php | jq .
+   curl -s localhost/app1/usr1/index.php | jq .
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
    {
      "request_uri": "/otherapp/usr1/index.php",
      "server_addr": "10.1.1.8",
      "server_port": "81"
    }
-   # curl -s localhost/app2/usr1/index.php | jq .
+   curl -s localhost/app2/usr1/index.php | jq .
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
    {
      "request_uri": "/app2/usr1/index.php",
      "server_addr": "10.1.1.8",
@@ -988,20 +1105,22 @@ locationの処理順序は以下となります。
 
 ラボで使用するファイルをコピーします
 
-::
+.. code-block:: cmdin
 
    cp ~/back-to-basic_plus/lab/m6-1_demo.conf default.conf
    cp ~/back-to-basic_plus/lab/m6-1_plus_api.conf plus_api.conf
 
 設定内容を確認し、反映します
 
-::
+.. code-block:: cmdin
 
    cat default.conf
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    upstream server_group {
        zone backend 64k;
@@ -1015,13 +1134,15 @@ locationの処理順序は以下となります。
        }
    }
 
-::
+.. code-block:: cmdin
 
    cat plus_api.conf
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    server {
        listen 8888;
@@ -1040,7 +1161,7 @@ locationの処理順序は以下となります。
 
 設定を反映します
 
-::
+.. code-block:: cmdin
 
    nginx -s reload
 
@@ -1053,13 +1174,15 @@ locationの処理順序は以下となります。
 
 以下コマンドを実行し、適切に分散されることを確認します。
 
-::
+.. code-block:: cmdin
 
    for i in {1..9}; do echo "==$i==" ; curl -s localhost | jq . ; sleep 1 ; done
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    ==1==
    {
@@ -1085,20 +1208,22 @@ Dashboardの結果が適切なweightで分散されていることを確認し�
 
 ラボで使用するファイルをコピーします
 
-::
+.. code-block:: cmdin
 
    cp -r ~/back-to-basic_plus/ssl .
    cp ~/back-to-basic_plus/lab/m8-1_demo.conf default.conf
 
 設定内容を確認し、反映します
 
-::
+.. code-block:: cmdin
 
    cat default.conf
 
 実行結果
 
-::
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    server {
        listen 80;
@@ -1112,7 +1237,7 @@ Dashboardの結果が適切なweightで分散されていることを確認し�
 
 設定を反映します
 
-::
+.. code-block:: cmdin
 
    nginx -s reload
 
@@ -1120,9 +1245,14 @@ Dashboardの結果が適切なweightで分散されていることを確認し�
 
 HTTPでのアクセスを確認
 
-::
+.. code-block:: cmdin
 
-   # curl -v http://localhost
+   curl -v http://localhost
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
    *   Trying 127.0.0.1:80...
    * TCP_NODELAY set
    * Connected to localhost (127.0.0.1) port 80 (#0)
@@ -1144,9 +1274,14 @@ HTTPでのアクセスを確認
 
 HTTPSでのアクセスを確認
 
-::
+.. code-block:: cmdin
 
-   # curl -kv https://localhost
+   curl -kv https://localhost
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
    *   Trying 127.0.0.1:443...
    * TCP_NODELAY set
    * Connected to localhost (127.0.0.1) port 443 (#0)
