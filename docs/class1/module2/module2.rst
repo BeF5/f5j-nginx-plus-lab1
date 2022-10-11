@@ -94,7 +94,7 @@ aptコマンドの設定情報を取得します
    sudo apt-get install -y app-protect app-protect-attack-signatures
    sudo apt-get install -y app-protect-dos
 
-インストールしたパッケージの情報の確認
+インストールしたパッケージの情報の確認します
 
 | 参考となる記事はこちらです。
 | `K72015934: Display the NGINX software version <https://support.f5.com/csp/article/K72015934>`__
@@ -162,13 +162,11 @@ NGINX の停止・起動
    sudo service nginx stop
    sudo service nginx start
 
-NGINX のstatus
+NGINX のstatusを確認します
 
 .. code-block:: cmdin
 
    sudo service nginx status
-
-実行結果サンプル
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -192,25 +190,21 @@ NGINX のstatus
    Nov 22 10:12:55 ip-10-1-1-7 systemd[1]: nginx.service: Can't open PID file /run/nginx.pid (yet?) after start: Operation not permitted
    Nov 22 10:12:55 ip-10-1-1-7 systemd[1]: Started NGINX Plus - high performance web server.
 
-pidファイルの配置場所の確認
+pidファイルの配置場所の確認します
 
 .. code-block:: cmdin
 
    grep pid /etc/nginx/nginx.conf
 
-実行結果
-
 .. code-block:: cmdin
 
    pid        /var/run/nginx.pid;
 
-pidの内容確認
+pidの内容を確認します
 
 .. code-block:: cmdin
 
    cat /var/run/nginx.pid
-
-実行結果サンプル
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -218,13 +212,11 @@ pidの内容確認
 
    9147
 
-論理コア数の確認
+論理コア数を確認します
 
 .. code-block:: cmdin
 
    grep processor /proc/cpuinfo | wc -l
-
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -232,7 +224,7 @@ pidの内容確認
 
    2
 
-NGINX Processの確認
+NGINX Processを確認します
 
 | NGINXはMaster Processと通信制御を行うWorker Processに分かれる。Worker ProcessはCPU
 Core数の数起動し、並列処理を行う設定となっている。 Master ProcessのPIDがPIDファイルに記載されている内容と一致していることを確認する
@@ -278,7 +270,7 @@ Core数の数起動し、並列処理を行う設定となっている。 Master
 1.  事前ファイルの取得 (5min)
 ~~~~~~~~
 
-ラボで必要なファイルをGitHubから取得
+ラボで必要なファイルをGitHubから取得します
 
 .. code-block:: cmdin
 
@@ -302,8 +294,6 @@ Core数の数起動し、並列処理を行う設定となっている。 Master
 .. code-block:: cmdin
 
    cat default.conf
-
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -361,7 +351,6 @@ Core数の数起動し、並列処理を行う設定となっている。 Master
 
    nginx -t
 
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -378,7 +367,6 @@ Core数の数起動し、並列処理を行う設定となっている。 Master
 
    vi default.conf
 
-変更内容
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -393,11 +381,9 @@ Core数の数起動し、並列処理を行う設定となっている。 Master
 | 再度テストを実行してください。
 | ``-t`` の実行
 
-::
+.. code-block:: cmdin
 
    nginx -t
-
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -411,8 +397,6 @@ Core数の数起動し、並列処理を行う設定となっている。 Master
 .. code-block:: cmdin
 
    nginx -T
-
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -475,7 +459,6 @@ Core数の数起動し、並列処理を行う設定となっている。 Master
    nginx -s reload
    ss -anp | grep nginx | grep LISTEN
 
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -483,13 +466,11 @@ Core数の数起動し、並列処理を行う設定となっている。 Master
 
    tcp    LISTEN  0       511                                              0.0.0.0:81                                                0.0.0.0:*                      users:(("nginx",pid=9341,fd=12),("nginx",pid=9340,fd=12),("nginx",pid=9147,fd=12))
 
-curlコマンドを実行します。
+curlコマンドを実行します
 
 .. code-block:: cmdin
 
    curl -s localhost:81 | grep title
-
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -518,8 +499,6 @@ listen 80では、indexを個別に記述をしていません。 listen
 
    cat default.conf
 
-実行結果
-
 .. code-block:: bash
   :caption: 実行結果サンプル
   :linenos:
@@ -535,14 +514,12 @@ listen 80では、indexを個別に記述をしていません。 listen
            index main.html;
    }
 
-設定を反映し、これらがどのように動作するのか見てみましょう。
+設定を反映し、これらがどのように動作するのか見てみましょう
 
 .. code-block:: cmdin
 
    nginx -s reload
    ss -anp | grep nginx | grep LISTEN
-
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -551,13 +528,11 @@ listen 80では、indexを個別に記述をしていません。 listen
    tcp    LISTEN  0       511                                              0.0.0.0:8080                                              0.0.0.0:*                      users:(("nginx",pid=9392,fd=9),("nginx",pid=9391,fd=9),("nginx",pid=9147,fd=9))
    tcp    LISTEN  0       511                                              0.0.0.0:80                                                0.0.0.0:*                      users:(("nginx",pid=9392,fd=8),("nginx",pid=9391,fd=8),("nginx",pid=9147,fd=8))
 
-Port 80 に対し、curlコマンドを実行します。
+Port 80 に対し、curlコマンドを実行します
 
 .. code-block:: cmdin
 
    curl -s localhost:80 | grep path
-
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -565,13 +540,12 @@ Port 80 に対し、curlコマンドを実行します。
 
        <h2>path: html/index.html</h2>     
 
-Port 8080 に対し、curlコマンドを実行します。
+Port 8080 に対し、curlコマンドを実行します
 
 .. code-block:: cmdin
 
    curl -s localhost:8080 | grep path
 
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -582,7 +556,7 @@ Port 8080 に対し、curlコマンドを実行します。
 4.  server directive (10min)
 ~~~~~~~~
 
-NGINXが通信を待ち受ける動作について以下を確認してください。
+NGINXが通信を待ち受ける動作について以下を確認してください
 
    - .. image:: ./media/nginx_server.jpg
        :width: 400
@@ -596,13 +570,12 @@ NGINXが通信を待ち受ける動作について以下を確認してくださ
 
    cp ~/back-to-basic_plus/lab/m3-1_demo.conf default.conf
 
-設定内容を確認します。
+設定内容を確認します
 
 .. code-block:: cmdin
 
    cat default.conf
 
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -612,14 +585,13 @@ NGINXが通信を待ち受ける動作について以下を確認してくださ
 
    }
 
-設定を反映します。
+設定を反映します
 
 .. code-block:: cmdin
 
    nginx -s reload
    ss -anp | grep nginx | grep LISTEN
 
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -628,13 +600,12 @@ NGINXが通信を待ち受ける動作について以下を確認してくださ
    tcp    LISTEN  0       511                                              0.0.0.0:80                                                0.0.0.0:*                      users:(("nginx",pid=9445,fd=8),("nginx",pid=9444,fd=8),("nginx",pid=9147,fd=8))
 
 | 設定が反映され、80でListenしていることが確認できます。
-| curlコマンドで結果を確認します。
+| curlコマンドで結果を確認します
 
 .. code-block:: cmdin
 
    curl localhost:80
 
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -660,7 +631,7 @@ NGINXが通信を待ち受ける動作について以下を確認してくださ
 これらの内容より、server
 directiveに設定を記述しない場合にも、defaultのパラメータで動作していることが確認できます。
 
-それでは対象となるディレクトリにファイルをコピーします。
+それでは対象となるディレクトリにファイルをコピーします
 
 .. code-block:: cmdin
 
@@ -673,8 +644,6 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
 .. code-block:: cmdin
 
    curl -s localhost:80 | grep default
-
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -710,7 +679,6 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
 
    cat default.conf
 
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -736,7 +704,7 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
        listen unix:/var/run/nginx.sock;
    }
 
-設定を反映します。
+設定を反映します
 
 .. code-block:: cmdin
 
@@ -745,13 +713,12 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
 | 設定で指定したポート番号やソケットでListenしていることを確認してください。
 | （正しく設定が読み込めない場合は、再度上記コマンドにて設定を読み込んでください)
 
-ソケットが生成されていることを確認
+ソケットが生成されていることを確認します
 
 .. code-block:: cmdin
 
    ls /var/run/nginx.sock
 
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -759,13 +726,11 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
 
    /var/run/nginx.sock
 
-NGINXでListenしている内容を確認
+NGINXでListenしている内容を確認します
 
 .. code-block:: cmdin
 
    ss -anp | grep nginx | grep LISTEN
-
-実行結果サンプル
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -833,7 +798,7 @@ server_name directiveを利用することにより、待ち受けるFQDNを指�
 
 ラボで使用するファイルをコピーします
 
-::
+.. code-block:: cmdin
 
    cp ~/back-to-basic_plus/lab/m3-3_demo.conf default.conf
 
@@ -843,7 +808,7 @@ server_name directiveを利用することにより、待ち受けるFQDNを指�
 
    cat default.conf
 
-実行結果
+実行結果を確認します
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -888,7 +853,7 @@ server_name directiveを利用することにより、待ち受けるFQDNを指�
        return 200 "~^(host2|host3).*\.example\.com\n";
    }
 
-設定を反映します。
+設定を反映します
 
 .. code-block:: cmdin
 
@@ -900,12 +865,13 @@ server_nameの処理順序は以下です
        :width: 400
 
 以下のコマンドを実行し結果を確認します。
-どのような処理が行われているか確認してください。
+どのような処理が行われているか確認してください
+
+完全一致する結果を確認します
 
 .. code-block:: cmdin
 
-   ・完全一致する結果を確認
-   # curl localhost -H 'Host:host1.example.com'
+   curl localhost -H 'Host:host1.example.com'
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -913,7 +879,10 @@ server_nameの処理順序は以下です
 
    host1.example.com
 
-   ・Wild Cardの前方一致する結果を確認
+Wild Cardの前方一致する結果を確認します
+
+.. code-block:: cmdin
+
    # curl localhost -H 'Host:www.example.co.jp'
 
 .. code-block:: bash
@@ -922,16 +891,21 @@ server_nameの処理順序は以下です
 
    www.example.*
 
-   ・正規表現のはじめに一致する結果を確認
-   # curl localhost -H 'Host:host2.example.co.jp'
+正規表現のはじめに一致する結果を確認します
+
+.. code-block:: cmdin
+   
+   curl localhost -H 'Host:host2.example.co.jp'
 
 .. code-block:: bash
   :caption: 実行結果サンプル
   :linenos:
 
    ~^.*\.example\..*
-   # curl localhost -H 'Host:host2.example.com'
 
+.. code-block:: cmdin
+   
+   curl localhost -H 'Host:host2.example.com'
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -953,8 +927,6 @@ server_nameの処理順序は以下です
 .. code-block:: cmdin
 
    cat default.conf
-
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -998,12 +970,13 @@ locationの処理順序は以下となります。
        :width: 400
 
 
-期待した結果となることを確認してください。
+期待した結果となることを確認してください
+
+前方一致する結果を確認
 
 .. code-block:: cmdin
 
-   ・前方一致する結果を確認
-   # curl http://localhost/app1/index.html
+   curl http://localhost/app1/index.html
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -1011,8 +984,11 @@ locationの処理順序は以下となります。
 
    LOCATION: ^~ /app1, URI: /app1/index.html, PORT: 80
 
-   ・正規表現で一致する結果を確認
-   # curl http://localhost/app2/index.html
+正規表現で一致する結果を確認
+
+.. code-block:: cmdin
+
+   curl http://localhost/app2/index.html
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -1045,8 +1021,6 @@ locationの処理順序は以下となります。
 
    cat default.conf
 
-実行結果
-
 .. code-block:: bash
   :caption: 実行結果サンプル
   :linenos:
@@ -1066,7 +1040,7 @@ locationの処理順序は以下となります。
 
 .. code-block:: cmdin
 
-   # nginx -s reload
+   nginx -s reload
 
 以下のコマンドを実行し結果を確認します。
 どのような処理が行われているか確認してください。
@@ -1084,6 +1058,9 @@ locationの処理順序は以下となります。
      "server_addr": "10.1.1.8",
      "server_port": "81"
    }
+
+.. code-block:: cmdin
+
    curl -s localhost/app2/usr1/index.php | jq .
 
 .. code-block:: bash
@@ -1116,8 +1093,6 @@ locationの処理順序は以下となります。
 
    cat default.conf
 
-実行結果
-
 .. code-block:: bash
   :caption: 実行結果サンプル
   :linenos:
@@ -1137,8 +1112,6 @@ locationの処理順序は以下となります。
 .. code-block:: cmdin
 
    cat plus_api.conf
-
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -1178,8 +1151,6 @@ locationの処理順序は以下となります。
 
    for i in {1..9}; do echo "==$i==" ; curl -s localhost | jq . ; sleep 1 ; done
 
-実行結果
-
 .. code-block:: bash
   :caption: 実行結果サンプル
   :linenos:
@@ -1218,8 +1189,6 @@ Dashboardの結果が適切なweightで分散されていることを確認し�
 .. code-block:: cmdin
 
    cat default.conf
-
-実行結果
 
 .. code-block:: bash
   :caption: 実行結果サンプル
