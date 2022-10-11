@@ -196,7 +196,9 @@ pidファイルの配置場所の確認します
 
    grep pid /etc/nginx/nginx.conf
 
-.. code-block:: cmdin
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
 
    pid        /var/run/nginx.pid;
 
