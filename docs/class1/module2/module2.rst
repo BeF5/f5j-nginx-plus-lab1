@@ -29,7 +29,7 @@ NGINX Plus の動作
 
       pscp -i .\.ssh\id_rsa-putty.ppk <送信するファイル> ubuntu@10.1.1.7:/home/ubuntu
 
-::
+.. code-block:: cmdin
 
    sudo mkdir -p /etc/ssl/nginx
    sudo cp ~/nginx-repo.crt /etc/ssl/nginx/
