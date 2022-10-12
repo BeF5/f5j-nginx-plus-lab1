@@ -280,7 +280,7 @@ NGINXはMaster Processと通信制御を行うWorker Processに分かます。Wo
 
    sudo su - 
    cd ~/
-   git clone https://github.com/hiropo20/back-to-basic_plus/
+   git clone https://github.com/BeF5/f5j-nginx-plus-lab1-conf.git
 
 
 2.  設定のテスト、設定の反映 (10min)
