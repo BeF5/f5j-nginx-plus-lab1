@@ -228,15 +228,17 @@ pidの内容を確認します
 
 NGINX Processを確認します
 
-| NGINXはMaster Processと通信制御を行うWorker Processに分かれる。Worker ProcessはCPU
-Core数の数起動し、並列処理を行う設定となっている。 Master ProcessのPIDがPIDファイルに記載されている内容と一致していることを確認する
-また、Worker ProcessがCPU Core数の数だけ起動していることを確認する
+NGINXはMaster Processと通信制御を行うWorker Processに分かます。Worker ProcessはCPUCore数の数起動し、並列処理を行う設定となっている。 Master ProcessのPIDがPIDファイルに記載されている内容と一致していることを確認する
+また、Worker ProcessがCPU Core数の数だけ起動していることを確認します
+
+.. code-block:: cmdin
+
+   ps aux | grep nginx
 
 .. code-block:: bash
   :caption: 実行結果サンプル
   :linenos:
 
-   # ps aux | grep nginx
    nginx       9122  0.0  0.0   2616   608 ?        Ss   10:12   0:00 /bin/sh -c usr/share/ts/bin/bd-socket-plugin tmm_count 4 proc_cpuinfo_cpu_mhz 2000000 total_xml_memory 307200000 total_umu_max_size 3129344 sys_max_account_id 1024 no_static_config 2>&1 >> /var/log/app_protect/bd-socket-plugin.log
    nginx       9123  0.3  3.0 385260 61592 ?        Sl   10:12   0:00 usr/share/ts/bin/bd-socket-plugin tmm_count 4 proc_cpuinfo_cpu_mhz 2000000 total_xml_memory 307200000 total_umu_max_size 3129344 sys_max_account_id 1024 no_static_config
    nginx       9125  0.0  0.0   2616   608 ?        Ss   10:12   0:00 /bin/sh -c /usr/bin/admd -d --log info 2>&1 > /var/log/adm/admd.log
