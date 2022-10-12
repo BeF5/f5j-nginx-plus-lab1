@@ -290,14 +290,13 @@ NGINXはMaster Processと通信制御を行うWorker Processに分かます。Wo
 
 .. code-block:: cmdin
 
-   cd /etc/nginx/conf.d/
-   cp ~/back-to-basic_plus/lab/m1-1_demo.conf default.conf
+   cp ~/f5j-nginx-plus-lab1-conf/lab/incomplete.conf /etc/nginx/conf.d/default.conf
 
 設定ファイルの内容を確認します
 
 .. code-block:: cmdin
 
-   cat default.conf
+   cat ~/f5j-nginx-plus-lab1-conf/lab/incomplete.conf
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -369,7 +368,7 @@ NGINXはMaster Processと通信制御を行うWorker Processに分かます。Wo
 
 .. code-block:: cmdin
 
-   vi default.conf
+   vi /etc/nginx/conf.d/default.conf
 
 
 .. code-block:: bash
@@ -489,19 +488,18 @@ curlコマンドを実行します
 
 .. code-block:: cmdin
 
-   cp -r ~/back-to-basic_plus/html .
-   cp ~/back-to-basic_plus/lab/m2-1_demo.conf default.conf
+  cp -r ~/f5j-nginx-plus-lab1-conf/html /etc/nginx/conf.d
+  cp ~/f5j-nginx-plus-lab1-conf/lab/inheritance.conf /etc/nginx/conf.d/default.conf
 
 | 設定ファイルの確認してください。
 | 本設定では、indexがポイントとなります。
 
-listen 80では、indexを個別に記述をしていません。 listen
-8080では、indexとして main.html を指定しています。 また、それぞれ root
-の記述方法が異なっています。
+listen 80では、indexを個別に記述をしていません。 listen 8080では、
+indexとして main.html を指定しています。 また、それぞれ root の記述方法が異なっています。
 
 .. code-block:: cmdin
 
-   cat default.conf
+  cat ~/f5j-nginx-plus-lab1-conf/lab/inheritance.conf
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -572,14 +570,13 @@ NGINXが通信を待ち受ける動作について以下を確認してくださ
 
 .. code-block:: cmdin
 
-   cp ~/back-to-basic_plus/lab/m3-1_demo.conf default.conf
+   cp ~/f5j-nginx-plus-lab1-conf/lab/blank-defaultbehavior.conf /etc/nginx/conf.d/default.conf
 
 設定内容を確認します
 
 .. code-block:: cmdin
 
-   cat default.conf
-
+   cat ~/f5j-nginx-plus-lab1-conf/lab/blank-defaultbehavior.conf
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -639,8 +636,9 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
 
 .. code-block:: cmdin
 
-   mkdir ../html
-   cp html/m3-1_index.html ../html/index.html
+  mkdir /etc/nginx/html
+  cp /etc/nginx/conf.d/html/default-path_index.html /etc/nginx/html/index.html
+
 
 | htmlファイルを配置しました。
 | 設定ファイルに変更は加えておりませんので、再度curlコマンドで結果を確認します
@@ -675,13 +673,13 @@ directiveに設定を記述しない場合にも、defaultのパラメータで�
 
 .. code-block:: cmdin
 
-   cp ~/back-to-basic_plus/lab/m3-2_demo.conf default.conf
+   cp ~/f5j-nginx-plus-lab1-conf/lab/multi-listen.conf /etc/nginx/conf.d/default.conf
 
 設定内容を確認し、反映します
 
 .. code-block:: cmdin
 
-   cat default.conf
+   cat ~/f5j-nginx-plus-lab1-conf/lab/multi-listen.conf
 
 
 .. code-block:: bash
@@ -791,9 +789,9 @@ socketを削除し、NGINXが起動することを確認します
 
 .. code-block:: cmdin
 
-   rm /var/run/nginx.sock
-   rm default.conf
-   service nginx restart
+  rm /var/run/nginx.sock
+  rm /etc/nginx/conf.d/default.conf
+  service nginx restart
 
 6.  server_name directive (10min)
 ~~~~~~~~
@@ -804,13 +802,13 @@ server_name directiveを利用することにより、待ち受けるFQDNを指�
 
 .. code-block:: cmdin
 
-   cp ~/back-to-basic_plus/lab/m3-3_demo.conf default.conf
+   cp ~/f5j-nginx-plus-lab1-conf/lab/multi-server_name.conf /etc/nginx/conf.d/default.conf
 
 設定内容を確認し、反映します
 
 .. code-block:: cmdin
 
-   cat default.conf
+   cat ~/f5j-nginx-plus-lab1-conf/lab/multi-server_name.conf 
 
 実行結果を確認します
 
@@ -887,7 +885,7 @@ Wild Cardの前方一致する結果を確認します
 
 .. code-block:: cmdin
 
-   # curl localhost -H 'Host:www.example.co.jp'
+   curl localhost -H 'Host:www.example.co.jp'
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -924,13 +922,13 @@ Wild Cardの前方一致する結果を確認します
 
 .. code-block:: cmdin
 
-   cp ~/back-to-basic_plus/lab/m4-1_demo.conf default.conf
+   cp ~/f5j-nginx-plus-lab1-conf/lab/multi-location.conf /etc/nginx/conf.d/default.conf
 
 設定内容を確認し、反映します
 
 .. code-block:: cmdin
 
-   cat default.conf
+   cat ~/f5j-nginx-plus-lab1-conf/lab/multi-location.conf
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -1017,13 +1015,13 @@ locationの処理順序は以下となります。
 
 .. code-block:: cmdin
 
-   cp ~/back-to-basic_plus/lab/m5-1_demo.conf default.conf
+   cp ~/f5j-nginx-plus-lab1-conf/lab/proxy.conf /etc/nginx/conf.d/default.conf
 
 設定内容を確認し、反映します
 
 .. code-block:: cmdin
 
-   cat default.conf
+   cat ~/f5j-nginx-plus-lab1-conf/lab/proxy.conf
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -1088,14 +1086,14 @@ locationの処理順序は以下となります。
 
 .. code-block:: cmdin
 
-   cp ~/back-to-basic_plus/lab/m6-1_demo.conf default.conf
-   cp ~/back-to-basic_plus/lab/m6-1_plus_api.conf plus_api.conf
+  cp ~/f5j-nginx-plus-lab1-conf/lab/lb-weight.conf /etc/nginx/conf.d/default.conf
+  cp ~/f5j-nginx-plus-lab1-conf/lab/lb-weight_plus_api.conf /etc/nginx/conf.d/plus_api.conf
 
 設定内容を確認し、反映します
 
 .. code-block:: cmdin
 
-   cat default.conf
+  cat ~/f5j-nginx-plus-lab1-conf/lab/lb-weight.conf
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -1115,7 +1113,7 @@ locationの処理順序は以下となります。
 
 .. code-block:: cmdin
 
-   cat plus_api.conf
+  cat ~/f5j-nginx-plus-lab1-conf/lab/lb-weight_plus_api.conf
 
 .. code-block:: bash
   :caption: 実行結果サンプル
@@ -1185,14 +1183,14 @@ Dashboardの結果が適切なweightで分散されていることを確認し�
 
 .. code-block:: cmdin
 
-   cp -r ~/back-to-basic_plus/ssl .
-   cp ~/back-to-basic_plus/lab/m8-1_demo.conf default.conf
+  cp -r ~/f5j-nginx-plus-lab1-conf/ssl /etc/nginx/conf.d
+  cp ~/f5j-nginx-plus-lab1-conf/lab/ssl.conf /etc/nginx/conf.d/default.conf
 
 設定内容を確認し、反映します
 
 .. code-block:: cmdin
 
-   cat default.conf
+  cat ~/f5j-nginx-plus-lab1-conf/lab/ssl.conf
 
 .. code-block:: bash
   :caption: 実行結果サンプル
