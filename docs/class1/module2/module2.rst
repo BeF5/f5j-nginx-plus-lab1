@@ -1140,9 +1140,8 @@ locationの処理順序は以下となります。
 
    nginx -s reload
 
-ブラウザでNGINX Plus Dashboardを開きます ``ubuntu01``
-のDashboardへの接続はメニューより ``PLUS  DASHBOARD``
-をクリックしてください
+作業を行うホストからブラウザでNGINX Plus Dashboardを開く場合、 ``ubuntu01``の接続はメニューより ``PLUS  DASHBOARD``をクリックしてください。
+踏み台ホストから接続する場合、ブラウザで `http://10.1.1.7:8888/dashboard.html <http://10.1.1.7:8888/dashboard.html>`__ を開いてください
 
    .. image:: ./media/nginx_lb2.png
        :width: 400
