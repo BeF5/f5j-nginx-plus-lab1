@@ -69,9 +69,6 @@ NGINX、App Protect WAF と App Protect DoS
    # NGINX App Protect DoSのレポジトリ情報
    printf "deb https://pkgs.nginx.com/app-protect-dos/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-app-protect-dos.list
 
-   # Mod Securityのレポジトリ情報
-   printf "deb https://pkgs.nginx.com/modsecurity/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-modsecurity.list
-
 aptコマンドの設定情報を取得します
 
 .. code-block:: cmdin
@@ -93,6 +90,8 @@ aptコマンドの設定情報を取得します
    sudo apt-get install -y nginx-plus
    sudo apt-get install -y app-protect app-protect-attack-signatures
    sudo apt-get install -y app-protect-dos
+   # NAP DoS Release 3.0 より
+   sudo apt-get install -y app-protect-dos app-protect-dos-ebpf
 
 インストールしたパッケージの情報の確認します
 
@@ -131,14 +130,15 @@ NGINX App Protect DoS のVersion
   :linenos:
 
    # dpkg-query -l | grep app-protect
-
-   ii  app-protect                        25+3.671.0-1~focal                    amd64        App-Protect package for Nginx Plus, Includes all of the default files and examples. Nginx App Protect provides web application firewall (WAF) security protection for your web applications, including OWASP Top 10 attacks.
-   ii  app-protect-attack-signatures      2021.11.16-1~focal                    amd64        Attack Signature Updates for App-Protect
-   ii  app-protect-common                 8.12.1-1~focal                        amd64        NGINX App Protect
-   ii  app-protect-compiler               8.12.1-1~focal                        amd64        Control-plane(aka CP) for waf-general debian
-   ii  app-protect-dos                    25+2.0.1-1~focal                      amd64        Nginx DoS protection
-   ii  app-protect-engine                 8.12.1-1~focal                        amd64        NGINX App Protect
-   ii  app-protect-plugin                 3.671.0-1~focal                       amd64        NGINX App Protect plugin
+   ii  app-protect                        28+4.2.0-1~focal                      amd64        App-Protect package for Nginx Plus, Includes all of the default files and examples. Nginx App Protect provides web application firewall (WAF) security protection for your web applications, including OWASP Top 10 attacks.
+   ii  app-protect-attack-signatures      2023.01.09-1~focal                    amd64        Attack Signature Updates for App-Protect
+   ii  app-protect-common                 10.179.0-1~focal                      amd64        NGINX App Protect
+   ii  app-protect-compiler               10.179.0-1~focal                      amd64        Control-plane(aka CP) for waf-general debian
+   ii  app-protect-dos                    28+3.1.7-1~focal                      amd64        Nginx DoS protection
+   ii  app-protect-dos-ebpf               28+3.1.7-1~focal                      amd64        Nginx DoS protection
+   ii  app-protect-engine                 10.179.0-1~focal                      amd64        NGINX App Protect
+   ii  app-protect-plugin                 4.2.0-1~focal                         amd64        NGINX App Protect plugin
+   ii  app-protect-threat-campaigns       2023.01.11-1~focal                    amd64        Threat Campaign Updates for App-Protect
 
 2. NGINXの基礎
 --------------
