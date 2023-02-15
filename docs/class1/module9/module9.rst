@@ -58,6 +58,7 @@ Tips2. Unprivilege(非特権)ユーザのInstall
 こちらの内容は、 `NGINX Plus Unprivileged Installation <https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-plus/#nginx-plus-unprivileged-installation>`__ を参照しています。
 各種作業手順や、コマンドの出力結果をまとめます。各種内容を参考にご確認ください。
 
+こちらのスクリプトの実行(特にfetch / list)では ``wget`` コマンドを使用しますので、コマンドを実行するホストでは予め取得・インストールしてください。
 
 1. Install Scriptの取得
 ----
@@ -80,6 +81,15 @@ Unprivilege Installに必要となるScriptを取得します
   
 2. NGINX Plus Binaryの取得
 ----
+
+| ライセンスファイルをコピーしてください
+  ファイルがラボ環境に配置されていない場合、トライアルを申請し証明書と鍵を取得してください
+| トライアルの申請方法は\ `トライアル申請方法 <http://f5j-nginx-plus-trial.readthedocs.io/>`__\ を参照してください
+
+.. code-block:: cmdin
+
+  cp ~/nginx-repo.* ./
+
 
 NGINX Plus Binary の取得
 
