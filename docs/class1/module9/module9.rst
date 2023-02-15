@@ -20,7 +20,7 @@ MyF5を利用せずファイルを取得する場合、 `Tips2. Unprivilege(非�
   sudo dpkg -i  nginx-plus_28-1~focal_amd64.deb
 
   # RedHat / CentOS / Oracle Linux / Rocky Linux / Alma Linux
-  rpm -ivh nginx-plus-28-1.el8.ngx.x86_64.rpm
+  sudo rpm -ivh nginx-plus-28-1.el8.ngx.x86_64.rpm
 
 バージョンを確認します
 
