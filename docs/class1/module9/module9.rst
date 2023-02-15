@@ -1,3 +1,6 @@
+補足情報
+####
+
 Tips1. NGINX Plus の Offline Install
 ====
 
