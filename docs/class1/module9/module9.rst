@@ -4,7 +4,7 @@ Tips1. NGINX Plus の Offline Install
 NGINX Plus Subscriptionをご契約のお客様は、MyF5より各OSに対応したNGINX Plusや、Moduleをダウンロードすることが可能となります。
 それらを利用し、OfflineのInstallが可能となります。
 
-MyF5を利用しない場合の方法は、`NGINX Plus Binaryの取得 <>`__ を参照してください。
+MyF5を利用せずファイルを取得する場合、`Tips2. Unprivilege(非特権)ユーザのInstall <#tips2-unprivilege-install>`__ の ``NGINX Plus Binaryの取得`` を参照してください。
 
 1. Offline Install
 ----
