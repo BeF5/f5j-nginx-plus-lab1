@@ -184,3 +184,50 @@ NGINXを展開するフォルダを必要に応じて作成
 
   <title>Welcome to nginx!</title>
 
+Tips3. NGINX Plus QUIC Package のインストール
+====
+
+NGINX Plus R29 では、実験利用を目的とした NGINX Plus QUIC Packageを提供しています。
+
+NGINX Plus QUICパッケージを利用する場合には、NGINX Plus に変わって NGINX Plus QUICをインストールします。
+QUICを含まないNGINX Plusとの共存、NGINX Plus QUICパッケージでのNGINX AppProtect、NGINX AppProtect DoS は利用できませんのでご注意ください。
+
+
+`1. NGINX Plusのインストール (15min)  <https://f5j-nginx-plus-lab1.readthedocs.io/en/latest/class1/module2/module2.html#nginx-plus-15min>`__
+のインストール直前までの手順
+`1. NGINX Licenseファイルのコピー <https://f5j-nginx-plus-lab1.readthedocs.io/en/latest/class1/module2/module2.html#nginx-license>`__
+、
+`2. コマンドの実行 <https://f5j-nginx-plus-lab1.readthedocs.io/en/latest/class1/module2/module2.html#id1>`__
+の手順を実行してください。
+
+NGINX Plus QUICを利用するため以下の手順を実施してください
+
+インストールに必要となる手順を実施します
+
+.. code-block:: cmdin
+
+  # リポジトリに利用する鍵を取得します
+  wget -qO - https://cs.nginx.com/static/keys/nginx_signing.key | gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
+
+  # NGINX Plus QUICのレポジトリ情報を追加します
+  printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/plus-quic/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-plus.list 
+
+NGINX Plus QUICパッケージをインストールします
+
+.. code-block:: cmdin
+
+  # NGINX Plus QUICパッケージをインストールします
+  sudo apt update
+  sudo apt install nginx-plus-quic
+
+インストールされたバージョンを確認します
+
+.. code-block:: cmdin
+
+  nginx -v
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
+  nginx version: nginx/1.23.4 (nginx-plus-quic-r29)
