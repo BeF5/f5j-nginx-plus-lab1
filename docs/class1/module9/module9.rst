@@ -187,11 +187,13 @@ NGINXを展開するフォルダを必要に応じて作成
 Tips3. NGINX Plus QUIC Package のインストール
 ====
 
+R29 Quick Package のインストール
+----
+
 NGINX Plus R29 では、実験利用を目的とした NGINX Plus QUIC Packageを提供しています。
 
 NGINX Plus QUICパッケージを利用する場合には、NGINX Plus に変わって NGINX Plus QUICをインストールします。
 QUICを含まないNGINX Plusとの共存、NGINX Plus QUICパッケージでのNGINX AppProtect、NGINX AppProtect DoS は利用できませんのでご注意ください。
-
 
 `1. NGINX Plusのインストール (15min)  <https://f5j-nginx-plus-lab1.readthedocs.io/en/latest/class1/module2/module2.html#nginx-plus-15min>`__
 のインストール直前までの手順
@@ -231,3 +233,111 @@ NGINX Plus QUICパッケージをインストールします
   :linenos:
 
   nginx version: nginx/1.23.4 (nginx-plus-quic-r29)
+
+参考設定
+----
+
+以下にサンプルの手順、動作確認手順を示します。
+
+設定ファイルを作成します
+
+.. code-block:: cmdin
+
+  vi ~/quic-sample.conf
+
+以下の内容を反映し、設定を保存します
+
+.. code-block:: cmdin
+
+  log_format quic '$remote_addr - $remote_user [$time_local]'
+  '"$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" "$http3"';
+  access_log /var/log/nginx/access.log quic;
+      
+  server {
+  
+      # for better compatibility we recommend
+      # using the same port number for QUIC and TCP
+      listen 443 quic reuseport; # QUIC
+      listen 443 ssl;            # TCP
+  
+      # please specify cert and key that you use.
+      ssl_certificate     conf.d/www.example.local.crt;
+      ssl_certificate_key conf.d/www.example.local.key;
+      ssl_protocols       TLSv1.3;
+  
+      location / {
+          # advertise that QUIC is available on the configured port
+          add_header Alt-Svc 'h3=":$server_port"; ma=86400';
+          root   /usr/share/nginx/html;
+          index  index.html index.htm;
+          #proxy_pass <upstream_group>;
+          #root       /<root_directory>;
+      }
+  }
+
+証明書をと鍵を作成します
+
+.. code-block:: cmdin
+
+  openssl ecparam -out ~/www.example.local.key -name prime256v1 -genkey 
+  openssl req -new -key ~/www.example.local.key -out ~/www.example.local-csr.pem -subj '/CN=www.example.local' 
+  openssl req -x509 -nodes -days 30 -key ~/www.example.local.key -in ~/www.example.local-csr.pem -out ~/www.example.local.crt
+
+ファイルをコピーします
+
+.. code-block:: cmdin
+
+  sudo cp ~/quic-sample.conf /etc/nginx/conf.d/
+  sudo cp ~/www.example.local* /etc/nginx/conf.d/
+
+設定を読み込みます
+
+.. code-block:: cmdin
+
+  sudo nginx -s reload 
+
+動作確認
+----
+
+http3が有効なcurlコマンドを実行するため、Docker Imageを作成します。まずDockerfileを作成します
+
+.. code-block:: cmdin
+
+  vi Dockerfile
+
+以下の内容を貼り付けて保存してください
+
+.. code-block:: cmdin
+
+  # syntax=docker/dockerfile:1
+  FROM ubuntu:20.04
+
+  RUN apt update && apt install -y git autoconf cmake libtool build-essential libssl-dev
+  RUN git clone -b v0.6.0 --depth 1 --recursive https://github.com/nibanks/msh3 \
+      && cd msh3 && mkdir build && cd build \
+      && cmake -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=RelWithDebInfo .. \
+      && cmake --build . \
+      && cmake --install .
+
+  RUN git clone https://github.com/curl/curl \
+      && cd curl \
+      && autoreconf -fi \
+      && ./configure LDFLAGS="-Wl,-rpath,/usr/local/lib" --with-msh3=/usr/local --with-openssl \
+      && make \
+      && make install
+
+  ENTRYPOINT ["tail", "-F", "/dev/null"]
+
+
+コンテナイメージをビルドします
+
+.. code-block:: cmdin
+
+  sudo docker build --no-cache -t curl-http3-msquic .
+
+ビルドしたイメージを利用し、curlを実行します
+
+.. code-block:: cmdin
+
+  # sudo docker run -it curl-http3-msquic /bin/bash
+  sudo docker run curl-http3-msquic curl -v -k -m 2 --resolve www.example.local:443:10.1.1.6 --http3 "https://www.example.local:443/"
