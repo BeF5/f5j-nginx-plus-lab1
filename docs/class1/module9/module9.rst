@@ -319,14 +319,12 @@ http3が有効なcurlコマンドを実行するため、Docker Imageを作成�
       && cmake --build . \
       && cmake --install .
 
-  RUN git clone https://github.com/curl/curl \
+  RUN git clone https://github.com/curl/curl -b curl-8_0_1 \
       && cd curl \
       && autoreconf -fi \
       && ./configure LDFLAGS="-Wl,-rpath,/usr/local/lib" --with-msh3=/usr/local --with-openssl \
       && make \
       && make install
-
-  ENTRYPOINT ["tail", "-F", "/dev/null"]
 
 
 コンテナイメージをビルドします
