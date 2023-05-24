@@ -5,21 +5,21 @@ NGINX OSS の利用
 1. NGINX OSSのインストール
 ----
 
-| 本ページに記載する手順に従ってNGINX Plus をインストールします
+| 本ページに記載する手順に従って ``NGINX OSS`` をインストールします
 | 参考： `Installing a Prebuilt Ubuntu Package from the Official NGINX Repository <https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#installing-a-prebuilt-ubuntu-package-from-the-official-nginx-repository>`__
 
 - NGINX OSSのインストール方法は大きく3つあります。この手順では ``NGINXが提供するPrebuild Binary`` の利用方法です。
 
-   それぞれの違いは以下の通りです
-   +-----------------------+-----------------------+
-   |利用方法               |管理主体               |
-   +-----------------------+-----------------------+
-   |NGINX Prebuild         |F5/NGINX※             |
-   +-----------------------+-----------------------+
-   |Linux Distri Prebuild  |Linux, OSSコミュニティ |
-   +-----------------------+-----------------------+
-   |Source Code から Build |OSSコミュニティ        |
-   +-----------------------+-----------------------+
+それぞれの違いは以下の通りです
++-----------------------+-----------------------+
+|利用方法               |管理主体               |
++-----------------------+-----------------------+
+|NGINX Prebuild         |F5/NGINX※             |
++-----------------------+-----------------------+
+|Linux Distri Prebuild  |Linux, OSSコミュニティ |
++-----------------------+-----------------------+
+|Source Code から Build |OSSコミュニティ        |
++-----------------------+-----------------------+
 
 - NGINX OSSは2つのバージョンがあります
 
