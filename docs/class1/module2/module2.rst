@@ -1111,6 +1111,9 @@ locationの処理順序は以下となります。
        }
    }
 
+.. NOTE::
+   API、APIを活用したDashboardの機能は ``NGINX Plus`` の機能となります。 ``NGINX OSS`` では利用できません。
+
 .. code-block:: cmdin
 
   cat ~/f5j-nginx-plus-lab1-conf/lab/lb-weight_plus_api.conf
