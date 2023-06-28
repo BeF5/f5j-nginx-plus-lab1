@@ -108,7 +108,7 @@ aptコマンドの設定情報を取得します
 
   nginx version: nginx/1.23.4 (nginx-plus-r29)
 
-`-V` (大文字)　を指定することによりパッケージが利用するOpenSSLの情報や、configureのオプションを確認できます。
+``-V`` (大文字)　を指定することによりパッケージが利用するOpenSSLの情報や、configureのオプションを確認できます。
 
 .. code-block:: cmdin
 
@@ -152,8 +152,8 @@ aptコマンドの設定情報を取得します
    session persistence and on-the-fly configuration; Improved content caching;
    Enhanced status and monitoring information; Streaming media delivery.
 
-- `2~3,8行目` : 指定したNGINX Plusのパッケージであることが確認できます
-- `6行目` : MaintainerとしてF5の情報が確認できます
+- ``2~3,8行目`` : 指定したNGINX Plusのパッケージであることが確認できます
+- ``6行目`` : MaintainerとしてF5の情報が確認できます
 
 NGINX App Protect のVersion
 

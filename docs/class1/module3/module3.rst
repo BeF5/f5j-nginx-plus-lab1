@@ -43,7 +43,7 @@ NGINX OSSに必要なリポジトリに利用する鍵を取得します
 .. code-block:: cmdin
 
   curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \
-    | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
+  | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
 
 レポジトリの情報を追加します。
 
@@ -53,7 +53,7 @@ NGINX OSSに必要なリポジトリに利用する鍵を取得します
 
   echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
   http://nginx.org/packages/mainline/ubuntu `lsb_release -cs` nginx" \
-      | sudo tee /etc/apt/sources.list.d/nginx.list
+  | sudo tee /etc/apt/sources.list.d/nginx.list
 
 ``stable`` をインストールする場合は以下を指定してください
 
@@ -61,7 +61,7 @@ NGINX OSSに必要なリポジトリに利用する鍵を取得します
 
   echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
   http://nginx.org/packages/ubuntu `lsb_release -cs` nginx" \
-      | sudo tee /etc/apt/sources.list.d/nginx.list
+  | sudo tee /etc/apt/sources.list.d/nginx.list
   
 
 aptコマンドの設定情報を取得します
@@ -69,14 +69,14 @@ aptコマンドの設定情報を取得します
 .. code-block:: cmdin
 
   echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" \
-      | sudo tee /etc/apt/preferences.d/99nginx
+  | sudo tee /etc/apt/preferences.d/99nginx
 
 
 パッケージ情報を更新します
 
 .. code-block:: cmdin
 
-   sudo apt update
+  sudo apt update
 
 3. NGINX パッケージのインストール
 ~~~~~~~~
@@ -101,7 +101,7 @@ aptコマンドの設定情報を取得します
 
   nginx version: nginx/1.25.1
 
-`-V` (大文字)　を指定することによりパッケージが利用するOpenSSLの情報や、configureのオプションを確認できます。
+``-V`` (大文字)　を指定することによりパッケージが利用するOpenSSLの情報や、configureのオプションを確認できます。
 
 .. code-block:: cmdin
 
@@ -143,8 +143,8 @@ aptコマンドの設定情報を取得します
    a mail proxy server.
 
 
-- `2~3,8行目` : 指定したNGINXのパッケージであることが確認できます
-- `6行目` : MaintainerとしてF5の情報が確認できます
+- ``2~3,8行目`` : 指定したNGINXのパッケージであることが確認できます
+- ``6行目`` : MaintainerとしてF5の情報が確認できます
 
 NGINX Plus と NGINX OSS は利用できるDirectiveやモジュールが異なります。
 その点を考慮し、 `NGINXの基礎 <https://f5j-nginx-plus-lab1.readthedocs.io/en/latest/class1/module2/module2.html#id2>`__ の内容を参考に動作を確認してください。
