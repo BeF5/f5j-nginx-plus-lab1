@@ -78,7 +78,7 @@ aptコマンドの設定情報を取得します
 
   sudo apt update
 
-3. NGINX パッケージのインストール
+2. NGINX パッケージのインストール
 ~~~~~~~~
 
 .. code-block:: cmdin
