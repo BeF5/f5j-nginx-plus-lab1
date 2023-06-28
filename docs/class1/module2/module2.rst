@@ -102,6 +102,59 @@ aptコマンドの設定情報を取得します
 
    nginx -v
 
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
+  nginx version: nginx/1.23.4 (nginx-plus-r29)
+
+`-V` (大文字)　を指定することによりパッケージが利用するOpenSSLの情報や、configureのオプションを確認できます。
+
+.. code-block:: cmdin
+
+   nginx -V
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
+  nginx version: nginx/1.23.4 (nginx-plus-r29)
+  built by gcc 9.3.0 (Ubuntu 9.3.0-10ubuntu2)
+  built with OpenSSL 1.1.1f  31 Mar 2020
+  TLS SNI support enabled
+  configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-compat --with-file-aio --with-threads --with-http_addition_module --with-http_auth_request_module --with-http_dav_module --with-http_flv_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_mp4_module --with-http_random_index_module --with-http_realip_module --with-http_secure_link_module --with-http_slice_module --with-http_ssl_module --with-http_stub_status_module --with-http_sub_module --with-http_v2_module --with-mail --with-mail_ssl_module --with-stream --with-stream_realip_module --with-stream_ssl_module --with-stream_ssl_preread_module --build=nginx-plus-r29 --with-http_auth_jwt_module --with-http_f4f_module --with-http_hls_module --with-http_proxy_protocol_vendor_module --with-http_session_log_module --with-stream_mqtt_filter_module --with-stream_mqtt_preread_module --with-stream_proxy_protocol_vendor_module --with-cc-opt='-g -O2 -fdebug-prefix-map=/data/builder/debuild/nginx-plus-1.23.4/debian/debuild-base/nginx-plus-1.23.4=. -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fPIC' --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -pie'
+
+またUbuntuの環境では以下サンプルのようにパッケージの詳細を確認することが可能です。
+
+.. code-block:: bash
+  :caption: 実行結果サンプル
+  :linenos:
+
+  # sudo apt show nginx-plus
+  Package: nginx-plus
+  Version: 29-1~focal
+  Priority: optional
+  Section: httpd
+  Maintainer: NGINX Packaging <nginx-packaging@f5.com>
+  Installed-Size: 6760 kB
+  Provides: httpd, nginx, nginx-plus-r29
+  Depends: libc6 (>= 2.28), libcrypt1 (>= 1:4.1.0), libpcre2-8-0 (>= 10.22), libssl1.1 (>= 1.1.1), zlib1g (>= 1:1.1.4), lsb-base (>= 3.0-6), adduser
+  Conflicts: nginx, nginx-common, nginx-core
+  Replaces: nginx, nginx-core, nginx-plus-debug
+  Homepage: https://www.nginx.com/
+  Download-Size: 3369 kB
+  APT-Manual-Installed: yes
+  APT-Sources: https://pkgs.nginx.com/plus/ubuntu focal/nginx-plus amd64 Packages
+  Description: NGINX Plus, provided by Nginx, Inc.
+   NGINX Plus extends NGINX open source to create an enterprise-grade
+   Application Delivery Controller, Accelerator and Web Server. Enhanced
+   features include: Layer 4 and Layer 7 load balancing with health checks,
+   session persistence and on-the-fly configuration; Improved content caching;
+   Enhanced status and monitoring information; Streaming media delivery.
+
+- `2~3,8行目` : 指定したNGINX Plusのパッケージであることが確認できます
+- `6行目` : MaintainerとしてF5の情報が確認できます
+
 NGINX App Protect のVersion
 
 .. code-block:: cmdin
