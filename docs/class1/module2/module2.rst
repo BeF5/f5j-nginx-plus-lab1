@@ -129,6 +129,7 @@ aptコマンドの設定情報を取得します
 .. code-block:: bash
   :caption: 実行結果サンプル
   :linenos:
+  :emphasize-lines: 2-3,8,6
 
   # sudo apt show nginx-plus
   Package: nginx-plus
