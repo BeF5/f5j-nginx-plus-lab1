@@ -44,30 +44,30 @@ NGINX、App Protect WAF と App Protect DoS
 
 .. code-block:: cmdin
 
-   sudo wget https://cs.nginx.com/static/keys/nginx_signing.key && sudo apt-key add nginx_signing.key
+   sudo wget -qO - https://cs.nginx.com/static/keys/nginx_signing.key | sudo gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
 
-   sudo wget https://cs.nginx.com/static/keys/app-protect-security-updates.key && sudo apt-key add app-protect-security-updates.key
+   sudo wget -qO - https://cs.nginx.com/static/keys/app-protect-security-updates.key | sudo gpg --dearmor | sudo tee /usr/share/keyrings/app-protect-security-updates.gpg >/dev/null
 
 必要となるパッケージをインストールします
 
 .. code-block:: cmdin
 
-   sudo apt-get install -y apt-transport-https lsb-release ca-certificates wget
+   sudo apt-get install apt-transport-https lsb-release ca-certificates wget gnupg2 ubuntu-keyring
 
 レポジトリの情報を追加します
 
 .. code-block:: cmdin
 
    # NGINX Plusのレポジトリ情報
-   printf "deb https://pkgs.nginx.com/plus/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-plus.list
+   printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/plus/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-plus.list
 
    # NGINX App Protectのレポジトリ情報
-   printf "deb https://pkgs.nginx.com/app-protect/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-app-protect.list
+   printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/app-protect/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-app-protect.list
 
-   printf "deb https://pkgs.nginx.com/app-protect-security-updates/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee -a /etc/apt/sources.list.d/nginx-app-protect.list
+   printf "deb [signed-by=/usr/share/keyrings/app-protect-security-updates.gpg] https://pkgs.nginx.com/app-protect-security-updates/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee -a /etc/apt/sources.list.d/nginx-app-protect.list
 
    # NGINX App Protect DoSのレポジトリ情報
-   printf "deb https://pkgs.nginx.com/app-protect-dos/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-app-protect-dos.list
+   printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/app-protect-dos/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-app-protect-dos.list
 
 aptコマンドの設定情報を取得します
 
@@ -90,7 +90,7 @@ aptコマンドの設定情報を取得します
    sudo apt-get install -y nginx-plus
    sudo apt-get install -y app-protect app-protect-attack-signatures
    sudo apt-get install -y app-protect-dos
-   # NAP DoS Release 3.0 より
+   # NAP DoS Release 4.4 より
    sudo apt-get install -y app-protect-dos app-protect-dos-ebpf
 
 インストールしたパッケージの情報の確認します
