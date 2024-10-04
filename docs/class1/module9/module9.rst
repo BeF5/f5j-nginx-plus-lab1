@@ -191,7 +191,9 @@ R29 Quick Package のインストール
 ----
 
 NGINX Plus R29 では、実験利用を目的とした NGINX Plus QUIC Packageを提供しています。
+
 なお、NGINX Plus R30 以降はQUIC+HTTP/3のネイティブサポートとなりました。詳細は以下をご確認ください。
+
 NGINX Plus R30の発表 <https://www.f5.com/ja_jp/company/blog/nginx/nginx-plus-r30-released>`__
 
 NGINX Plus QUICパッケージを利用する場合には、NGINX Plus に変わって NGINX Plus QUICをインストールします。
