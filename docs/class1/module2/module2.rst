@@ -23,6 +23,14 @@ NGINX Plus の動作
 .. NOTE::
    取得したライセンスファイルを\ ``Jump Host``\ にコピーした後、\ ``ubuntu-01``\ に送信するために\ ``pscp``\ をご利用いただくことが可能です。以下コマンドを参考にご利用ください。コマンドプロンプト、powershellなどのターミナルから実行いただけます
 
+   なお、ubuntu01/02およびdocker_hostにライセンスファイルを格納しております。格納位置は以下になります
+
+　　Windows2019_JumpBox、vnc-windows：C:\Users\user\Desktop\Key
+
+　　Ubuntu01/02：/home/ubuntu/
+
+   docker_host：/home/centos/
+
    .. code-block:: bash
 
       コマンド: pscp -i <SSHで利用する公開鍵> <送付するファイル> <宛先>
