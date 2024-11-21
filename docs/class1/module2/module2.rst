@@ -7,6 +7,7 @@ NGINX Plus の動作
 
 | 本ページに記載する手順に従ってNGINX Plus をインストールします
 | 参考：\ `Installing NGINX Plus on Ubuntu <https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-plus/#installing-nginx-plus-on-ubuntu>`__
+| なお、NGINX Plus R33以降はNGINXを起動するためにJWTファイルが必要になります。そのため、本LabではR32を使用しております。
 
 .. NOTE::
    手順確認の目的で、NGINX Plusの他、NGINX App Protect WAF、NGINX App
@@ -116,7 +117,7 @@ aptコマンドの設定情報を取得します
   :caption: 実行結果サンプル
   :linenos:
 
-  nginx version: nginx/1.23.4 (nginx-plus-r29)
+  nginx version: nginx/1.25.5 (nginx-plus-r32-p1)
 
 ``-V`` (大文字)　を指定することによりパッケージが利用するOpenSSLの情報や、configureのオプションを確認できます。
 
