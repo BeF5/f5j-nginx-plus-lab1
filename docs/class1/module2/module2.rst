@@ -25,7 +25,7 @@ NGINX Plus の動作
    
    なお、ubuntu01/02およびdocker_hostにライセンスファイルを格納しております。格納位置は以下になります:
 
-   Windows2019_JumpBox、vnc-windows：:C:\Users\user\Desktop\Key
+   Windows2019_JumpBox、vnc-windows：C:`\`Users`\`user`\`Desktop`\`Key
    
    Ubuntu01/02：/home/ubuntu/
    
