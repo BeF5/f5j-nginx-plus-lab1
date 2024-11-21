@@ -102,7 +102,7 @@ aptコマンドの設定情報を取得します
    sudo apt-get install -y app-protect app-protect-attack-signatures
    sudo apt-get install -y app-protect-dos
    # NAP DoS Release 4.4 より
-   sudo apt-get install -y app-protect-dos app-protect-dos-ebpf
+   sudo apt-get install -y app-protect-dos-ebpf
 
 インストールしたパッケージの情報の確認します
 
