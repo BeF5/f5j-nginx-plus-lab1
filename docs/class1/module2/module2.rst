@@ -73,12 +73,12 @@ NGINX、App Protect WAF と App Protect DoS
    printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/plus/R32/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-plus.list
 
    # NGINX App Protectのレポジトリ情報
-   printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/app-protect/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-app-protect.list
+   printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/app-protect/R32/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-app-protect.list
 
    printf "deb [signed-by=/usr/share/keyrings/app-protect-security-updates.gpg] https://pkgs.nginx.com/app-protect-security-updates/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee -a /etc/apt/sources.list.d/nginx-app-protect.list
 
    # NGINX App Protect DoSのレポジトリ情報
-   printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/app-protect-dos/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-app-protect-dos.list
+   printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/app-protect-dos/R32/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-app-protect-dos.list
 
 aptコマンドの設定情報を取得します
 
@@ -129,11 +129,11 @@ aptコマンドの設定情報を取得します
   :caption: 実行結果サンプル
   :linenos:
 
-  nginx version: nginx/1.23.4 (nginx-plus-r29)
-  built by gcc 9.3.0 (Ubuntu 9.3.0-10ubuntu2)
+  nginx version: nginx/1.25.5 (nginx-plus-r32-p1)
+  built by gcc 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
   built with OpenSSL 1.1.1f  31 Mar 2020
   TLS SNI support enabled
-  configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-compat --with-file-aio --with-threads --with-http_addition_module --with-http_auth_request_module --with-http_dav_module --with-http_flv_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_mp4_module --with-http_random_index_module --with-http_realip_module --with-http_secure_link_module --with-http_slice_module --with-http_ssl_module --with-http_stub_status_module --with-http_sub_module --with-http_v2_module --with-mail --with-mail_ssl_module --with-stream --with-stream_realip_module --with-stream_ssl_module --with-stream_ssl_preread_module --build=nginx-plus-r29 --with-http_auth_jwt_module --with-http_f4f_module --with-http_hls_module --with-http_proxy_protocol_vendor_module --with-http_session_log_module --with-stream_mqtt_filter_module --with-stream_mqtt_preread_module --with-stream_proxy_protocol_vendor_module --with-cc-opt='-g -O2 -fdebug-prefix-map=/data/builder/debuild/nginx-plus-1.23.4/debian/debuild-base/nginx-plus-1.23.4=. -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fPIC' --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -pie'
+  configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-compat --with-file-aio --with-threads --with-http_addition_module --with-http_auth_request_module --with-http_dav_module --with-http_flv_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_mp4_module --with-http_random_index_module --with-http_realip_module --with-http_secure_link_module --with-http_slice_module --with-http_ssl_module --with-http_stub_status_module --with-http_sub_module --with-http_v2_module --with-http_v3_module --with-mail --with-mail_ssl_module --with-stream --with-stream_realip_module --with-stream_ssl_module --with-stream_ssl_preread_module --build=nginx-plus-r32-p1 --mgmt-id-path=/var/lib/nginx/nginx.id --with-http_auth_jwt_module --with-http_f4f_module --with-http_hls_module --with-http_proxy_protocol_vendor_module --with-http_session_log_module --with-mgmt --with-stream_mqtt_filter_module --with-stream_mqtt_preread_module --with-stream_proxy_protocol_vendor_module --with-cc-opt='-g -O2 -fdebug-prefix-map=/data/builder/debuild/nginx-plus-1.25.5/debian/debuild-base/nginx-plus-1.25.5=. -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fPIC' --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -pie'
 
 またUbuntuの環境では以下サンプルのようにパッケージの詳細を確認することが可能です。
 
@@ -144,19 +144,20 @@ aptコマンドの設定情報を取得します
 
   # sudo apt show nginx-plus
   Package: nginx-plus
-  Version: 29-1~focal
+  Version: 32-2~focal
   Priority: optional
   Section: httpd
   Maintainer: NGINX Packaging <nginx-packaging@f5.com>
-  Installed-Size: 6760 kB
-  Provides: httpd, nginx, nginx-plus-r29
-  Depends: libc6 (>= 2.28), libcrypt1 (>= 1:4.1.0), libpcre2-8-0 (>= 10.22), libssl1.1 (>= 1.1.1), zlib1g (>= 1:1.1.4), lsb-base (>= 3.0-6), adduser
+  Installed-Size: 7296 kB
+  Provides: httpd, nginx, nginx-plus-r32
+  Depends: libc6 (>= 2.28), libcrypt1 (>= 1:4.1.0), libpcre2-8-0 (>= 10.22), libssl1.1 (>= 1.1.1), zlib1g (>= 1:1.1.4), lsb-base (>= 3.0-6)
+  Recommends: logrotate
   Conflicts: nginx, nginx-common, nginx-core
   Replaces: nginx, nginx-core, nginx-plus-debug
   Homepage: https://www.nginx.com/
-  Download-Size: 3369 kB
+  Download-Size: 3567 kB
   APT-Manual-Installed: yes
-  APT-Sources: https://pkgs.nginx.com/plus/ubuntu focal/nginx-plus amd64 Packages
+  APT-Sources: https://pkgs.nginx.com/plus/R32/ubuntu focal/nginx-plus amd64 Packages
   Description: NGINX Plus, provided by Nginx, Inc.
    NGINX Plus extends NGINX open source to create an enterprise-grade
    Application Delivery Controller, Accelerator and Web Server. Enhanced
@@ -186,24 +187,26 @@ NGINX App Protect DoS のVersion
   :linenos:
 
    # dpkg-query -l | grep nginx-plus
-   ii  nginx-plus                         25-1~focal                            amd64        NGINX Plus, provided by Nginx, Inc.
-   ii  nginx-plus-module-appprotect       25+3.671.0-1~focal                    amd64        NGINX Plus app protect dynamic module version 3.671.0
-   ii  nginx-plus-module-appprotectdos    25+2.0.1-1~focal                      amd64        NGINX Plus appprotectdos dynamic module
+   ii  nginx-plus                         32-2~focal                            amd64        NGINX Plus, provided by Nginx, Inc.
+   ii  nginx-plus-module-appprotect       32+5.144.0-1~focal                    amd64        NGINX Plus app protect dynamic module version 5.144.0
+   ii  nginx-plus-module-appprotectdos    32+4.4.1-1~focal                      amd64        NGINX Plus appprotectdos dynamic module
 
 .. code-block:: bash
   :caption: 実行結果サンプル
   :linenos:
 
    # dpkg-query -l | grep app-protect
-   ii  app-protect                        28+4.2.0-1~focal                      amd64        App-Protect package for Nginx Plus, Includes all of the default files and examples. Nginx App Protect provides web application firewall (WAF) security protection for your web applications, including OWASP Top 10 attacks.
-   ii  app-protect-attack-signatures      2023.01.09-1~focal                    amd64        Attack Signature Updates for App-Protect
-   ii  app-protect-common                 10.179.0-1~focal                      amd64        NGINX App Protect
-   ii  app-protect-compiler               10.179.0-1~focal                      amd64        Control-plane(aka CP) for waf-general debian
-   ii  app-protect-dos                    28+3.1.7-1~focal                      amd64        Nginx DoS protection
-   ii  app-protect-dos-ebpf               28+3.1.7-1~focal                      amd64        Nginx DoS protection
-   ii  app-protect-engine                 10.179.0-1~focal                      amd64        NGINX App Protect
-   ii  app-protect-plugin                 4.2.0-1~focal                         amd64        NGINX App Protect plugin
-   ii  app-protect-threat-campaigns       2023.01.11-1~focal                    amd64        Threat Campaign Updates for App-Protect
+   ii  app-protect-attack-signatures      2024.11.13-1~focal                    amd64        Attack Signature Updates for App-Protect
+   ii  app-protect-bot-signatures         2024.11.18-1~focal                    amd64        Bot Signature Updates for App-Protect
+   ii  app-protect-common                 11.133.0-1~focal                      amd64        NGINX App Protect
+   ii  app-protect-compiler               11.133.0-1~focal                      amd64        Control-plane(aka CP) for waf-general debian
+   ii  app-protect-dos                    32+4.4.1-1~focal                      amd64        Nginx DoS protection
+   ii  app-protect-dos-ebpf               32+4.4.1-1~focal                      amd64        Nginx DoS protection
+   ii  app-protect-engine                 11.133.0-1~focal                      amd64        NGINX App Protect
+   ii  app-protect-geoip                  2023.10.30-1~focal                    amd64        App Protect GeoIP
+   ii  app-protect-graphql                0.7.0-1~focal                         amd64        App Protect GraphQL Parsing Library
+   ii  app-protect-plugin                 6.3.0-1~focal                         amd64        NGINX App Protect plugin
+   ii  app-protect-threat-campaigns       2024.11.19-1~focal                    amd64        Threat Campaign Updates for App-Protect
 
 2. NGINXの基礎
 --------------
