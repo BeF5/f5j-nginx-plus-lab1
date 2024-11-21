@@ -196,7 +196,7 @@ NGINX Plus R29 では、実験利用を目的とした NGINX Plus QUIC Package�
 
 `NGINX Plus R30の発表 <https://www.f5.com/ja_jp/company/blog/nginx/nginx-plus-r30-released>`__
 
-NGINX Plus QUICパッケージを利用する場合には、NGINX Plus に変わって NGINX Plus QUICをインストールします。
+R29での利用の場合はNGINX Plus QUICパッケージを利用する場合には、NGINX Plus に変わって NGINX Plus QUICをインストールします。
 QUICを含まないNGINX Plusとの共存、NGINX Plus QUICパッケージでのNGINX AppProtect、NGINX AppProtect DoS は利用できませんのでご注意ください。
 
 `1. NGINX Plusのインストール (15min)  <https://f5j-nginx-plus-lab1.readthedocs.io/en/latest/class1/module2/module2.html#nginx-plus-15min>`__
